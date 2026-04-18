@@ -148,19 +148,27 @@
             cursor: pointer;
         }
 
-        /* ── HERO ── */
+        /* ── HERO (split layout) ── */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10rem 3rem 8rem;
-            text-align: center;
+            padding: 8rem 3rem 5rem;
             background: var(--cream);
         }
 
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
         .hero-content {
-            max-width: 850px;
+            max-width: 600px;
         }
 
         .hero-label {
@@ -168,14 +176,14 @@
             font-size: 0.85rem;
             font-weight: 500;
             color: var(--grey);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 1.05;
-            margin-bottom: 2rem;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.08;
+            margin-bottom: 1.5rem;
             letter-spacing: -2px;
             color: var(--dark);
         }
@@ -185,19 +193,33 @@
             color: var(--teal);
         }
 
-        .hero p {
-            font-size: 1.15rem;
+        .hero-sub {
+            font-size: 1.1rem;
             color: var(--dark-50);
-            max-width: 550px;
-            margin: 0 auto 2.5rem;
+            max-width: 500px;
+            margin-bottom: 2rem;
             line-height: 1.7;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px;
+            object-fit: cover;
+            aspect-ratio: 4/5;
         }
 
         .btn-primary {
@@ -254,6 +276,14 @@
             opacity: 0.9;
         }
 
+        /* ── SOCIAL PROOF ── */
+        .social-proof {
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.85rem;
+            color: var(--grey);
+            letter-spacing: 0.3px;
+        }
+
         /* ── STATS BAR ── */
         .stats-bar {
             padding: 4rem 3rem;
@@ -284,6 +314,37 @@
             letter-spacing: 1.5px;
             font-weight: 500;
             font-family: 'Figtree', sans-serif;
+        }
+
+        /* ── NOTE ON FIT (moved up) ── */
+        .fit-section {
+            padding: 5rem 3rem;
+            background: var(--cream);
+        }
+
+        .fit-content {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .fit-content h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .fit-content p {
+            font-size: 1.05rem;
+            color: var(--dark-70);
+            line-height: 1.8;
+            font-family: 'Figtree', sans-serif;
+        }
+
+        .fit-content p strong {
+            color: var(--dark);
+            font-weight: 600;
         }
 
         /* ── SECTIONS ── */
@@ -409,7 +470,7 @@
             font-family: 'Figtree', sans-serif;
         }
 
-        /* ── TESTIMONIAL ── */
+        /* ── TESTIMONIAL (single quote) ── */
         .testimonial {
             background: var(--dark);
             text-align: center;
@@ -504,6 +565,12 @@
         .about-intro p strong {
             color: var(--dark);
             font-weight: 600;
+        }
+
+        /* ── APPROACH (own section with id) ── */
+        .approach-section {
+            background: var(--cream);
+            padding: 8rem 3rem;
         }
 
         .approach-grid {
@@ -642,104 +709,164 @@
             line-height: 1.4;
         }
 
-        /* ── NOT FOR ── */
-        .not-for {
-            max-width: 700px;
-            margin: 3rem auto 0;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--dark-10);
-        }
-
-        .not-for p {
-            font-size: 0.95rem;
-            color: var(--grey);
-            line-height: 1.7;
-            font-family: 'Figtree', sans-serif;
-        }
-
-        .not-for strong {
-            color: var(--dark-70);
-        }
-
-        /* ── LEAD MAGNET ── */
-        .lead-magnet {
+        /* ── ASSESSMENT ── */
+        .assessment-section {
             background: var(--teal);
-            text-align: center;
             color: var(--cream);
         }
 
-        .lead-magnet-content {
-            max-width: 600px;
+        .assessment-section .section-label {
+            color: var(--orange);
+        }
+
+        .assessment-section .section-header h2 {
+            color: var(--cream);
+        }
+
+        .assessment-section .section-header p {
+            color: rgba(255, 255, 235, 0.6);
+        }
+
+        .assessment-wrapper {
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        .lead-magnet h2 {
-            color: var(--cream);
+        .assessment-question {
+            background: rgba(255, 255, 235, 0.06);
+            border: 1px solid rgba(255, 255, 235, 0.12);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .lead-magnet p {
-            color: rgba(255, 255, 235, 0.6);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-family: 'Figtree', sans-serif;
-        }
-
-        .lead-magnet-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .lead-magnet-form input {
-            flex: 1;
-            padding: 0.9rem 1.2rem;
-            background: rgba(255, 255, 235, 0.1);
-            border: 1px solid rgba(255, 255, 235, 0.2);
-            border-radius: 100px;
+        .assessment-question p {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.2rem;
             color: var(--cream);
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .assessment-question .q-number {
             font-family: 'Figtree', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .lead-magnet-form input::placeholder {
-            color: rgba(255, 255, 235, 0.4);
-        }
-
-        .lead-magnet-form input:focus {
-            outline: none;
-            border-color: var(--orange);
-        }
-
-        .lead-magnet-form button {
-            background: var(--orange);
-            color: var(--dark);
-            border: none;
-            padding: 0.9rem 1.8rem;
-            border-radius: 100px;
+            font-size: 0.7rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--orange);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .assessment-options {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .assessment-options label {
+            display: block;
+            padding: 0.65rem 1.2rem;
+            background: rgba(255, 255, 235, 0.08);
+            border: 1.5px solid rgba(255, 255, 235, 0.15);
+            border-radius: 100px;
             cursor: pointer;
             font-family: 'Figtree', sans-serif;
-            white-space: nowrap;
-            transition: opacity 0.3s;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 235, 0.7);
+            transition: all 0.25s;
         }
 
-        .lead-magnet-form button:hover {
+        .assessment-options input[type="radio"] {
+            display: none;
+        }
+
+        .assessment-options input[type="radio"]:checked + label {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .assessment-options label:hover {
+            border-color: rgba(255, 255, 235, 0.4);
+            color: var(--cream);
+        }
+
+        .assessment-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+        }
+
+        .btn-orange:hover {
             opacity: 0.9;
         }
 
-        /* ── SOCIAL PROOF ── */
-        .social-proof {
+        .btn-orange:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Assessment results */
+        .assessment-result {
+            display: none;
             text-align: center;
-            padding: 1rem 0 0;
+            padding: 3rem 2rem;
+        }
+
+        .assessment-result.visible {
+            display: block;
+        }
+
+        .result-score {
+            font-family: 'EB Garamond', serif;
+            font-size: 5rem;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-score-label {
             font-family: 'Figtree', sans-serif;
-            font-size: 0.85rem;
-            color: var(--grey);
-            letter-spacing: 0.3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 235, 0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .result-headline {
+            font-family: 'EB Garamond', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .result-body {
+            font-family: 'Figtree', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 235, 0.6);
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 2rem;
         }
 
         /* ── CTA BANNER ── */
@@ -796,7 +923,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.9rem 1.2rem;
             background: var(--cream);
@@ -809,7 +937,8 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--teal);
         }
@@ -943,6 +1072,34 @@
                 display: block;
             }
 
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .hero-photo img {
+                max-width: 320px;
+                aspect-ratio: 1/1;
+                border-radius: 20px;
+            }
+
+            .social-proof {
+                text-align: center;
+            }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
@@ -965,10 +1122,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .lead-magnet-form {
-                flex-direction: column;
-            }
-
             .testimonial-card:first-child {
                 grid-column: auto;
             }
@@ -982,7 +1135,15 @@
             }
 
             .hero {
-                padding: 8rem 1.5rem 5rem;
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .fit-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .approach-section {
+                padding: 5rem 1.5rem;
             }
 
             .contact-form {
@@ -992,6 +1153,10 @@
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .assessment-question {
+                padding: 1.5rem;
             }
         }
 
@@ -1027,22 +1192,28 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#approach">Approach</a></li>
-            <li><a href="#free-guide" class="nav-free-guide">Free Guide</a></li>
-            <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+            <li><a href="#assessment" class="nav-free-guide">Free Assessment</a></li>
+            <li><a href="#assessment" class="nav-cta">Take the Assessment</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO (split layout with photo) -->
     <section class="hero">
-        <div class="hero-content fade-in">
-            <span class="hero-label">Growth partner for SME founders &amp; CEOs</span>
-            <h1>I help founders build businesses that <em>scale without them.</em></h1>
-            <p>You've built something real. Now it's time to build it bigger, faster, and without it all depending on you. That's where I come in.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Let's talk</a>
-                <a href="#services" class="btn-secondary">What I do</a>
+        <div class="hero-inner fade-in">
+            <div class="hero-content">
+                <span class="hero-label">Growth advisory for SME founders &middot; &pound;1M&ndash;&pound;20M revenue</span>
+                <h1>I help founders build businesses that <em>scale without them.</em></h1>
+                <p class="hero-sub">You've built something real. Now it needs to grow without everything running through you. I've done it before &mdash; took a business from startup to &pound;250M turnover. I can help you do the same.</p>
+                <div class="hero-buttons">
+                    <a href="#assessment" class="btn-primary">Take the free assessment</a>
+                    <a href="#services" class="btn-secondary">What I do</a>
+                </div>
+                <div class="social-proof">150+ businesses built, scaled and transformed.</div>
             </div>
-            <div class="social-proof">150+ businesses built, scaled and transformed.</div>
+            <div class="hero-photo">
+                <!-- Replace lee-photo.jpg with your actual photo file -->
+                <img src="lee-photo.jpg" alt="Lee Liasi">
+            </div>
         </div>
     </section>
 
@@ -1051,7 +1222,7 @@
         <div class="stats-grid">
             <div class="stat-item">
                 <h3>20+</h3>
-                <p>Years experience</p>
+                <p>Years in the trenches</p>
             </div>
             <div class="stat-item">
                 <h3>200+</h3>
@@ -1068,6 +1239,14 @@
         </div>
     </div>
 
+    <!-- NOTE ON FIT (moved up — no longer buried) -->
+    <div class="fit-section fade-in">
+        <div class="fit-content">
+            <h2>A note on fit.</h2>
+            <p>This isn't for businesses looking for a quick fix, a slide deck that sits in a drawer, or a consultant who tells you what you want to hear. I work with <strong>founders and leaders running businesses between &pound;1M and &pound;20M</strong> who are serious about building something that lasts. If that sounds like you, we'll get on well.</p>
+        </div>
+    </div>
+
     <!-- WHO I WORK WITH -->
     <section class="who-section fade-in">
         <div class="section-header">
@@ -1077,15 +1256,15 @@
         <div class="who-grid">
             <div class="who-card">
                 <h3>SME Founders</h3>
-                <p>You built it from nothing. Now you're stuck in the middle of everything. You want to step back without the business falling apart.</p>
+                <p>You built it from nothing. Now you're stuck in the middle of everything. Revenue's between &pound;1M and &pound;20M but growth has stalled because the business can't move without you.</p>
             </div>
             <div class="who-card">
                 <h3>CEOs &amp; MDs</h3>
-                <p>You're leading a growing business but the team, systems and culture haven't kept up. You need someone who's been where you are.</p>
+                <p>You're leading a growing business but the team, systems and culture haven't kept pace. You need someone who's actually been in the seat, not just read about it.</p>
             </div>
             <div class="who-card">
-                <h3>Business Owners Preparing for Exit</h3>
-                <p>You want to sell or step away in the next few years. The business needs to run without you to be worth what it should be.</p>
+                <h3>Owners Preparing for Exit</h3>
+                <p>You want to sell or step away in the next few years. The business needs to run without you before it's worth what it should be.</p>
             </div>
         </div>
     </section>
@@ -1095,7 +1274,7 @@
         <div class="section-header fade-in">
             <span class="section-label">Services</span>
             <h2>Built around your business. Not a template.</h2>
-            <p>I work across growth, people, technology and systems. Every engagement is tailored to where your business is and where it needs to be.</p>
+            <p>I work across growth, people, technology and systems. Every engagement is shaped by where your business actually is and where you need it to go.</p>
         </div>
 
         <!-- Growth & Strategy -->
@@ -1107,27 +1286,27 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h4>Acquisition Integration</h4>
-                    <p>Advise on and integrate acquisitions, turning bolt-on businesses into unified, high-performing operations. From due diligence to cultural alignment.</p>
+                    <p>Turn bolt-on acquisitions into unified, high-performing operations. Due diligence through to cultural alignment &mdash; I've integrated 50+ businesses this way.</p>
                 </div>
                 <div class="service-card">
                     <h4>Client Retention &amp; Base Growth</h4>
-                    <p>Design systems and behaviours that protect existing revenue while expanding your client base organically. Every client deserves the same level of attention and care.</p>
+                    <p>Protect existing revenue while growing your client base. Systems and behaviours that mean every client gets the attention they deserve, not just the loudest ones.</p>
                 </div>
                 <div class="service-card">
                     <h4>Data-Driven Growth</h4>
-                    <p>Install performance dashboards and KPI frameworks so decisions are based on evidence, not gut feel. Track value per instruction, not just volume.</p>
+                    <p>Performance dashboards and KPI frameworks so you're making decisions on evidence, not gut feel. Track value per instruction, not just volume.</p>
                 </div>
                 <div class="service-card">
                     <h4>Exit Readiness</h4>
-                    <p>Build self-sufficient, systemised businesses that are attractive to acquirers when the time comes. Clean data, reduced key-person risk, sellable operations.</p>
+                    <p>Build a business that's attractive to buyers. Clean data, reduced key-person risk, sellable operations. The kind of business someone actually wants to acquire.</p>
                 </div>
                 <div class="service-card">
                     <h4>Change Management</h4>
-                    <p>Guide your business through rapid change. Post-acquisition, tech adoption, restructuring, or cultural transformation. Keeping momentum and morale intact.</p>
+                    <p>Post-acquisition, tech adoption, restructuring, cultural transformation &mdash; I keep momentum and morale intact when everything's shifting underneath you.</p>
                 </div>
                 <div class="service-card">
                     <h4>Founder Advisory</h4>
-                    <p>Partner with you to build a business that runs with self-sufficiency. Healthy work-life balance without sacrificing performance or growth trajectory.</p>
+                    <p>Your sounding board. I help you step back from the day-to-day without sacrificing performance or growth. Build a business that doesn't need you in every room.</p>
                 </div>
             </div>
         </div>
@@ -1141,27 +1320,27 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h4>High-Performance Team Building</h4>
-                    <p>Create teams that are bought into your long-term vision, accelerating growth exponentially rather than incrementally. Recruit, develop, and retain the best.</p>
+                    <p>Teams that are bought into your long-term vision. The kind that accelerate growth exponentially, not incrementally. Recruit right, develop well, keep the best.</p>
                 </div>
                 <div class="service-card">
                     <h4>Culture Architecture</h4>
-                    <p>Build cultures of excellence, pace and productivity that stay genuinely customer-focused. Culture isn't a poster on the wall. It's how people behave when you're not watching.</p>
+                    <p>Culture isn't a poster on the wall. It's how people behave when you're not watching. I build cultures of pace, productivity and genuine customer focus.</p>
                 </div>
                 <div class="service-card">
                     <h4>Leadership Development</h4>
-                    <p>Coach founders and senior leaders to become brilliant leaders, not just competent managers. One-to-one and team programmes that create lasting capability.</p>
+                    <p>One-to-one and team coaching that turns competent managers into brilliant leaders. Not theory &mdash; practical, lasting capability your business can feel.</p>
                 </div>
                 <div class="service-card">
                     <h4>Wellbeing as Performance</h4>
-                    <p>Happy, energised teams deliver happier customers and stronger results. Build the environment where performance and wellbeing reinforce each other.</p>
+                    <p>Happy, energised people deliver better results. I build environments where performance and wellbeing reinforce each other instead of competing.</p>
                 </div>
                 <div class="service-card">
                     <h4>Applied Neuroscience</h4>
-                    <p>Evidence-based neuroscience techniques to build better habits, sharpen cognitive performance, and sustain high output across your team. Science, not motivational fluff.</p>
+                    <p>Evidence-based techniques to build better habits and sharpen cognitive performance across your team. Science, not motivational fluff.</p>
                 </div>
                 <div class="service-card">
                     <h4>Scalable Systems &amp; Processes</h4>
-                    <p>Build operational frameworks that outlast any individual. Reduce key-person risk and create a business that doesn't depend on one hero to function.</p>
+                    <p>Operational frameworks that outlast any individual. Reduce key-person risk so the business doesn't depend on one hero to function.</p>
                 </div>
             </div>
         </div>
@@ -1175,21 +1354,21 @@
             <div class="services-grid services-grid-2">
                 <div class="service-card">
                     <h4>AI &amp; Technology Integration</h4>
-                    <p>Deploy the latest tools, including AI, to streamline operations, sharpen marketing, win new clients, and free up leadership time for strategic growth. Technology should free up your best people to do their best work.</p>
+                    <p>Practical AI and tech deployment that streamlines operations and frees up your best people to do their best work. No buzzwords, just results.</p>
                 </div>
                 <div class="service-card">
                     <h4>Continuous Improvement</h4>
-                    <p>Constantly researching and implementing proven performance methods. I stay ahead of what works so you don't have to. Bringing the latest thinking in growth, tech, and performance to your business.</p>
+                    <p>I stay across what actually works in growth, tech and performance so you don't have to. The latest thinking, tested and applied to your business.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIAL -->
+    <!-- TESTIMONIAL (updated with real name) -->
     <section class="testimonial fade-in">
         <div class="testimonial-content">
             <blockquote>&ldquo;Lee doesn't just tell you what to do. He gets in there and does it with you. The impact on our team was immediate and lasting.&rdquo;</blockquote>
-            <cite>CEO, London-based SME (50+ employees)</cite>
+            <cite>Dom Demetriou, CEO &middot; London-based SME (50+ employees)</cite>
         </div>
     </section>
 
@@ -1202,7 +1381,7 @@
 
         <div class="testimonials-grid fade-in">
             <div class="testimonial-card">
-                <blockquote>Lee transformed the way we think about growth. Within six months, our leadership team was operating at a completely different level. He doesn't just advise. He rolls up his sleeves and makes it happen alongside you.</blockquote>
+                <blockquote>Lee transformed the way we think about growth. Within six months, our leadership team was operating at a completely different level. He doesn't just advise &mdash; he rolls up his sleeves and makes it happen alongside you.</blockquote>
                 <div class="tc-author">James Whitfield</div>
                 <div class="tc-role">CEO, Property Management Group</div>
             </div>
@@ -1212,12 +1391,12 @@
                 <div class="tc-role">Founder, London-based Recruitment Firm</div>
             </div>
             <div class="testimonial-card">
-                <blockquote>The team culture shift was remarkable. People who were thinking about leaving are now our most engaged performers. Lee understands people as well as he understands business.</blockquote>
+                <blockquote>The culture shift was remarkable. People who were thinking about leaving became our most engaged performers. Lee understands people as well as he understands business.</blockquote>
                 <div class="tc-author">David Okoro</div>
                 <div class="tc-role">Managing Director, Financial Services SME</div>
             </div>
             <div class="testimonial-card">
-                <blockquote>I've worked with consultants before and they hand you a report and disappear. Lee is the opposite. He was in the business with us every step, and the results speak for themselves.</blockquote>
+                <blockquote>I've worked with consultants before &mdash; they hand you a report and disappear. Lee is the opposite. He was in the business with us every step, and the results speak for themselves.</blockquote>
                 <div class="tc-author">Rachel Simmons</div>
                 <div class="tc-role">COO, Multi-site Retail Business</div>
             </div>
@@ -1234,32 +1413,32 @@
         <div class="section-header fade-in">
             <span class="section-label">What Changes</span>
             <h2>The before and after.</h2>
-            <p>This is what happens when you get the right strategy, the right team, and the right systems in place.</p>
+            <p>This is what happens when the right strategy, team and systems click into place.</p>
         </div>
         <div class="results-grid fade-in">
             <div class="result-card">
                 <div class="result-before">Before</div>
                 <div class="result-from">Founder-dependent. Every decision runs through you.</div>
                 <div class="result-after">After</div>
-                <div class="result-to">An autonomous business that operates, decides, and delivers without you in every room.</div>
+                <div class="result-to">A business that operates, decides and delivers without you in every room.</div>
             </div>
             <div class="result-card">
                 <div class="result-before">Before</div>
                 <div class="result-from">Flat growth. Working harder but not getting further.</div>
                 <div class="result-after">After</div>
-                <div class="result-to">Exponential, compounding growth driven by high-performance teams and scalable systems.</div>
+                <div class="result-to">Compounding growth driven by high-performance teams and scalable systems.</div>
             </div>
             <div class="result-card">
                 <div class="result-before">Before</div>
                 <div class="result-from">High staff turnover. Constantly recruiting, constantly training.</div>
                 <div class="result-after">After</div>
-                <div class="result-to">Industry-leading retention. A culture where top performers choose to stay and grow.</div>
+                <div class="result-to">A culture where top performers choose to stay. Industry-leading retention.</div>
             </div>
             <div class="result-card">
                 <div class="result-before">Before</div>
                 <div class="result-from">No clear exit path. The business can't run without you.</div>
                 <div class="result-after">After</div>
-                <div class="result-to">A sellable, self-sufficient operation with clean data, strong leadership and reduced key-person risk.</div>
+                <div class="result-to">A sellable, self-sufficient operation with clean data and strong leadership.</div>
             </div>
         </div>
     </section>
@@ -1267,14 +1446,21 @@
     <!-- ABOUT -->
     <section class="about" id="about">
         <div class="section-header fade-in">
-            <span class="section-label">My Approach</span>
+            <span class="section-label">About</span>
             <h2>Not another consultant.</h2>
         </div>
         <div class="about-intro fade-in">
-            <p>I spent 20+ years working alongside the CEO and founder of London's most successful estate agency business. As a senior leader and member of the senior leadership advisory council, I helped build it to <strong>£250 million turnover</strong> with a value of <strong>over £500 million</strong>. I've built high-performance teams, managed 3,000+ colleagues, trained dozens of managing directors, and coached and developed hundreds of senior staff. I helped create an autonomous business that outperformed the competition with industry-leading recruitment, retention, and results. <strong>That's the difference. I've done it.</strong></p>
+            <p>I spent 20+ years alongside the CEO and founder of London's most successful estate agency business. As a senior leader on the advisory council, I helped take it to <strong>&pound;250 million turnover</strong> with a value of <strong>over &pound;500 million</strong>. I've built high-performance teams, managed 3,000+ people, trained dozens of managing directors, and coached hundreds of senior staff. I didn't read about building an autonomous, high-performing business &mdash; <strong>I did it.</strong></p>
         </div>
+    </section>
 
-        <div class="approach-grid fade-in" id="approach" style="margin-top: 3rem;">
+    <!-- APPROACH (separate section with correct scroll target) -->
+    <section class="approach-section" id="approach">
+        <div class="section-header fade-in">
+            <span class="section-label">My Approach</span>
+            <h2>How it works.</h2>
+        </div>
+        <div class="approach-grid fade-in">
             <div class="approach-step">
                 <div class="approach-number">01</div>
                 <h3>Diagnose</h3>
@@ -1296,32 +1482,108 @@
                 <p>Install the habits, processes and culture that keep performing when I'm gone. You shouldn't need me forever.</p>
             </div>
         </div>
-
-        <div class="not-for fade-in">
-            <p><strong>A note on fit.</strong> This isn't for businesses looking for a quick fix, a slide deck that sits in a drawer, or a consultant who tells you what you want to hear. I work with founders and leaders who are serious about building something that lasts. If that's you, we'll get on well.</p>
-        </div>
     </section>
 
     <!-- CTA BANNER -->
     <section class="cta-banner fade-in">
-        <h2>Ready to scale with intent?</h2>
-        <p>Let's have a conversation about where your business is and where it could be.</p>
-        <a href="#contact" class="btn-teal">Get in touch</a>
+        <h2>Not sure where you stand?</h2>
+        <p>Take the free scalability assessment. Five minutes, honest answers, and you'll know exactly where to focus.</p>
+        <a href="#assessment" class="btn-teal">Take the assessment</a>
     </section>
 
-    <!-- LEAD MAGNET -->
-    <section class="lead-magnet fade-in" id="free-guide">
-        <div class="lead-magnet-content">
-            <span class="section-label" style="color: var(--orange);">Free Guide</span>
-            <h2>The Founder Trap: 5 Mistakes That Kill Growth</h2>
-            <p>A short, honest guide for founders who suspect they might be the bottleneck. Enter your email and download it instantly.</p>
-            <form class="lead-magnet-form" action="https://formsubmit.co/lee@liasi.io" method="POST">
-                <input type="hidden" name="_subject" value="Lead magnet download: The Founder Trap">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://liasi.io/the-founder-trap.pdf">
-                <input type="email" name="email" required placeholder="Your email address">
-                <button type="submit">Download free guide</button>
-            </form>
+    <!-- ASSESSMENT (replaces PDF lead magnet) -->
+    <section class="assessment-section" id="assessment">
+        <div class="section-header fade-in">
+            <span class="section-label">Free Assessment</span>
+            <h2>How scalable is your business?</h2>
+            <p>Answer 6 honest questions. No fluff, no email required upfront. See where you stand in under 3 minutes.</p>
+        </div>
+
+        <div class="assessment-wrapper fade-in" id="assessment-questions">
+            <!-- Q1 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 1 of 6</span>
+                <p>If you took a month off tomorrow, what happens to the business?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q1" id="q1a" value="1"><label for="q1a">It falls apart</label>
+                    <input type="radio" name="q1" id="q1b" value="2"><label for="q1b">It survives but struggles</label>
+                    <input type="radio" name="q1" id="q1c" value="3"><label for="q1c">It runs fine for a while</label>
+                    <input type="radio" name="q1" id="q1d" value="4"><label for="q1d">It doesn't skip a beat</label>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 2 of 6</span>
+                <p>How much of your revenue depends on you personally winning or managing the work?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q2" id="q2a" value="1"><label for="q2a">Almost all of it</label>
+                    <input type="radio" name="q2" id="q2b" value="2"><label for="q2b">More than half</label>
+                    <input type="radio" name="q2" id="q2c" value="3"><label for="q2c">Less than half</label>
+                    <input type="radio" name="q2" id="q2d" value="4"><label for="q2d">Very little</label>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 3 of 6</span>
+                <p>Do you have a leadership team that can make big decisions without you?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q3" id="q3a" value="1"><label for="q3a">No, I decide everything</label>
+                    <input type="radio" name="q3" id="q3b" value="2"><label for="q3b">They handle small stuff</label>
+                    <input type="radio" name="q3" id="q3c" value="3"><label for="q3c">Most decisions, yes</label>
+                    <input type="radio" name="q3" id="q3d" value="4"><label for="q3d">They run the show</label>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 4 of 6</span>
+                <p>How would you describe your staff retention over the last 2 years?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q4" id="q4a" value="1"><label for="q4a">Constant churn</label>
+                    <input type="radio" name="q4" id="q4b" value="2"><label for="q4b">We lose good people</label>
+                    <input type="radio" name="q4" id="q4c" value="3"><label for="q4c">Pretty stable</label>
+                    <input type="radio" name="q4" id="q4d" value="4"><label for="q4d">People stay and grow</label>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 5 of 6</span>
+                <p>Do you have documented systems and processes that the team actually follows?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q5" id="q5a" value="1"><label for="q5a">It's all in my head</label>
+                    <input type="radio" name="q5" id="q5b" value="2"><label for="q5b">Some, but patchy</label>
+                    <input type="radio" name="q5" id="q5c" value="3"><label for="q5c">Mostly documented</label>
+                    <input type="radio" name="q5" id="q5d" value="4"><label for="q5d">Fully systemised</label>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="assessment-question">
+                <span class="q-number">Question 6 of 6</span>
+                <p>If a buyer looked at your business today, would they see something they'd want to acquire?</p>
+                <div class="assessment-options">
+                    <input type="radio" name="q6" id="q6a" value="1"><label for="q6a">Honestly, no</label>
+                    <input type="radio" name="q6" id="q6b" value="2"><label for="q6b">Maybe, with work</label>
+                    <input type="radio" name="q6" id="q6c" value="3"><label for="q6c">Getting there</label>
+                    <input type="radio" name="q6" id="q6d" value="4"><label for="q6d">Absolutely</label>
+                </div>
+            </div>
+
+            <div class="assessment-cta">
+                <button class="btn-orange" id="assessment-submit" onclick="showResult()">See my score</button>
+            </div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="assessment-result" id="assessment-result">
+            <div class="result-score" id="score-display"></div>
+            <div class="result-score-label">out of 24</div>
+            <div class="result-headline" id="result-headline"></div>
+            <div class="result-body" id="result-body"></div>
+            <a href="#contact" class="btn-orange">Let's talk about your score</a>
         </div>
     </section>
 
@@ -1330,7 +1592,7 @@
         <div class="section-header fade-in">
             <span class="section-label">Let's Talk</span>
             <h2>Don't know where to start? Start here.</h2>
-            <p>No commitment, no hard sell. Just tell me what's going on in your business and I'll tell you straight whether I can help.</p>
+            <p>No commitment, no hard sell. Tell me what's going on in your business and I'll be straight with you about whether I can help.</p>
         </div>
 
         <div class="contact-wrapper fade-in">
@@ -1356,8 +1618,19 @@
                     <input type="text" name="company" placeholder="Your company (optional)">
                 </div>
                 <div class="form-group">
-                    <label>What's on your mind?</label>
-                    <textarea name="message" required placeholder="Tell me a bit about your business and what you're looking to achieve..."></textarea>
+                    <label>Approximate Revenue</label>
+                    <select name="revenue">
+                        <option value="" disabled selected>Select range</option>
+                        <option value="under-1m">Under &pound;1M</option>
+                        <option value="1m-5m">&pound;1M &ndash; &pound;5M</option>
+                        <option value="5m-10m">&pound;5M &ndash; &pound;10M</option>
+                        <option value="10m-20m">&pound;10M &ndash; &pound;20M</option>
+                        <option value="20m-plus">&pound;20M+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>What's going on in your business?</label>
+                    <textarea name="message" required placeholder="Where are you stuck? What does the next 12 months need to look like?"></textarea>
                 </div>
                 <button type="submit" class="form-submit">Send Message</button>
             </form>
@@ -1370,7 +1643,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <span class="logo-text" style="font-size:1.3rem;">Liasi<span class="logo-dot"></span></span>
-                <p>Helping SME founders and CEOs build businesses that scale without burning out themselves or their teams.</p>
+                <p>Growth advisory for SME founders and CEOs building businesses between &pound;1M and &pound;20M that scale without burning out.</p>
             </div>
             <div class="footer-col">
                 <h4>Navigate</h4>
@@ -1378,7 +1651,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#free-guide">Free Guide</a></li>
+                    <li><a href="#assessment">Assessment</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1396,6 +1669,7 @@
 
     <!-- SCRIPTS -->
     <script>
+        // Fade-in observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1406,13 +1680,14 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+        // Mobile menu close on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
 
-        // Nav background on scroll
+        // Nav border on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 80) {
@@ -1421,6 +1696,55 @@
                 nav.style.borderBottom = 'none';
             }
         });
+
+        // Assessment scoring
+        function showResult() {
+            const questions = ['q1','q2','q3','q4','q5','q6'];
+            let total = 0;
+            let answered = 0;
+
+            questions.forEach(q => {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected) {
+                    total += parseInt(selected.value);
+                    answered++;
+                }
+            });
+
+            if (answered < 6) {
+                alert('Please answer all 6 questions to see your score.');
+                return;
+            }
+
+            // Hide questions, show result
+            document.getElementById('assessment-questions').style.display = 'none';
+            const resultDiv = document.getElementById('assessment-result');
+            resultDiv.classList.add('visible');
+
+            document.getElementById('score-display').textContent = total;
+
+            let headline, body;
+
+            if (total <= 9) {
+                headline = "Your business is founder-trapped.";
+                body = "Right now, the business can't function without you. That's not sustainable and it's killing your growth. The good news: this is exactly the situation I specialise in. Let's talk about getting you out of the middle.";
+            } else if (total <= 15) {
+                headline = "You've got foundations, but you're still the bottleneck.";
+                body = "Some things are working, but too much still depends on you. You're in the zone where the right changes in team, systems and leadership will unlock serious growth. This is where most of my clients start.";
+            } else if (total <= 20) {
+                headline = "You're in good shape. Now it's about acceleration.";
+                body = "Your business has real structure. The opportunity now is to compound what's working, strengthen your leadership bench, and build something that's genuinely sellable. We should talk about what the next level looks like.";
+            } else {
+                headline = "You've built something impressive.";
+                body = "Your business runs well without you. At this stage, it's about fine-tuning for maximum value &mdash; whether that's an exit, aggressive growth, or building a legacy. Happy to have a conversation about what's next.";
+            }
+
+            document.getElementById('result-headline').textContent = headline;
+            document.getElementById('result-body').textContent = body;
+
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     </script>
 
 </body>
