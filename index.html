@@ -46,7 +46,7 @@
         .logo-dot svg{width:100%;height:100%;display:block}
         .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
         .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.3s;letter-spacing:0.3px;position:relative}
-        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.3s ease}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent2);transition:width 0.3s ease}
         .nav-links a:hover{color:var(--text)}
         .nav-links a:hover::after{width:100%}
         .nav-cta::after{display:none}
@@ -393,9 +393,9 @@
             <h2>Not another consultant.</h2>
             <p>I spent over 20 years alongside the CEO and founder of London's most successful estate agency. As a senior leader on the advisory council, I helped take it to <strong>&pound;250 million turnover</strong>, valued at over <strong>&pound;500 million</strong>. I've built teams, managed <strong>3,000+ people</strong>, trained dozens of MDs, and coached hundreds of senior leaders. I didn't read about building a business that runs without you. I actually did it.</p>
             <div class="about-credentials">
-                <div class="about-cred"><div class="about-cred-num">&pound;500M+</div><div class="about-cred-label">Business Value Built</div></div>
-                <div class="about-cred"><div class="about-cred-num">3,000+</div><div class="about-cred-label">People Managed</div></div>
-                <div class="about-cred"><div class="about-cred-num">500+</div><div class="about-cred-label">Hiring Decisions Made</div></div>
+                <div class="about-cred"><div class="about-cred-num" data-target="500" data-prefix="&pound;" data-suffix="M+">&pound;0M+</div><div class="about-cred-label">Business Value Built</div></div>
+                <div class="about-cred"><div class="about-cred-num" data-target="3000" data-suffix="+" data-format="comma">0+</div><div class="about-cred-label">People Managed</div></div>
+                <div class="about-cred"><div class="about-cred-num" data-target="500" data-suffix="+">0+</div><div class="about-cred-label">Hiring Decisions Made</div></div>
             </div>
         </div>
     </div>
@@ -629,12 +629,17 @@ window.addEventListener('scroll', () => {
 // Stat count-up with easing for dramatic effect
 function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
 function animateCount(el, target, duration) {
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '+';
+    const useComma = el.dataset.format === 'comma';
     const start = performance.now();
     function tick(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
         const eased = easeOutQuart(progress);
-        el.textContent = Math.floor(eased * target) + '+';
+        let n = Math.floor(eased * target);
+        const formatted = useComma ? n.toLocaleString() : String(n);
+        el.textContent = prefix + formatted + suffix;
         if (progress < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
@@ -649,7 +654,7 @@ const statObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.5 });
-document.querySelectorAll('.hero-stat-num').forEach(el => statObserver.observe(el));
+document.querySelectorAll('.hero-stat-num, .about-cred-num').forEach(el => statObserver.observe(el));
 
 // Assessment progress bar + auto-advance
 document.querySelectorAll('.q-options input[type="radio"]').forEach(radio => {
