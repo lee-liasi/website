@@ -82,6 +82,15 @@
         .footer-social .social-icon[aria-label="LinkedIn"]:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 16px rgba(70,130,180,0.15)}
         .footer-social .social-icon[aria-label="Instagram"]:hover{border-color:var(--accent2);color:var(--accent2);box-shadow:0 4px 16px rgba(196,146,42,0.15)}
 
+        /* PRIVACY MODAL */
+        .privacy-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+        .privacy-modal.open{display:flex}
+        .privacy-modal-inner{background:var(--bg);max-width:600px;width:90%;max-height:80vh;overflow-y:auto;border-radius:12px;padding:2.5rem;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+        .privacy-modal-inner h2{font-size:1.3rem;margin-bottom:1.2rem}
+        .privacy-modal-inner h3{font-size:0.95rem;margin:1.2rem 0 0.4rem;color:var(--text)}
+        .privacy-modal-inner p{font-size:0.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:0.6rem}
+        .privacy-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.5rem;color:var(--text-muted);cursor:pointer}
+
         /* HERO */
         .hero{min-height:100vh;display:flex;align-items:center;padding:5.5rem 3rem 2rem;position:relative;overflow:hidden}
         .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(70,130,180,0.06) 0%,transparent 70%);pointer-events:none}
@@ -546,7 +555,7 @@
             <div class="form-group"><label>What's going on in your business?</label><textarea></textarea></div>
             <button type="submit" class="assess-btn" style="margin-top:0.5rem">Send Message</button>
         </form>
-        <p class="form-note">I'll come back to you personally. Usually within 24 hours. Your details are kept confidential and never shared.</p>
+        <p class="form-note">I'll come back to you personally. Usually within 24 hours. Your details are kept confidential and never shared. See my <a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').classList.add('open')" style="color:var(--accent);text-decoration:underline">Privacy Policy</a>.</p>
         <p class="availability">I take on a small number of clients at any one time to make sure I can give each one proper attention.</p>
     </div>
 </section>
@@ -572,7 +581,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom">&copy; 2026 Liasi. All rights reserved.</div>
+    <div class="footer-bottom">&copy; 2026 Liasi. All rights reserved. &nbsp;|&nbsp; <a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').classList.add('open')" style="color:var(--text-muted);text-decoration:underline">Privacy Policy</a></div>
 </footer>
 
 <script>
@@ -663,5 +672,35 @@ function showResult() {
     result.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 </script>
+<!-- PRIVACY POLICY MODAL -->
+<div class="privacy-modal" id="privacy-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="privacy-modal-inner">
+        <button class="privacy-close" onclick="document.getElementById('privacy-modal').classList.remove('open')">&times;</button>
+        <h2>Privacy Policy</h2>
+        <p>Last updated: May 2026</p>
+
+        <h3>Who I am</h3>
+        <p>Liasi is a growth advisory service operated by Lee Liasi. My website address is https://leeliasi.com and my contact email is lee@leeliasi.com.</p>
+
+        <h3>What data I collect and why</h3>
+        <p>When you submit the contact form on this website, I collect your name, email address, phone number, company name, approximate revenue, and your message. I use this information solely to respond to your enquiry and to discuss how I might be able to help your business. I do not use this data for marketing unless you ask me to stay in touch.</p>
+
+        <h3>How I store your data</h3>
+        <p>Your enquiry is received and stored securely in my Microsoft 365 email account. I do not share your information with any third parties, and I do not use any third-party tools to process your data from this website.</p>
+
+        <h3>How long I keep your data</h3>
+        <p>I keep your enquiry for as long as it is relevant to our conversation or any working relationship. If we do not end up working together, I will delete your details within 12 months of our last contact unless you ask me to keep them.</p>
+
+        <h3>Your rights</h3>
+        <p>Under UK GDPR, you have the right to request access to your data, ask me to correct it, ask me to delete it, or withdraw any consent you have given. To exercise any of these rights, email me at lee@leeliasi.com and I will respond within 30 days.</p>
+
+        <h3>Cookies</h3>
+        <p>This website does not use cookies or any tracking technologies. No analytics, no advertising pixels, no third-party scripts that collect your data.</p>
+
+        <h3>Changes to this policy</h3>
+        <p>If I make any changes to this policy, I will update the date at the top of this page.</p>
+    </div>
+</div>
+
 </body>
 </html>
