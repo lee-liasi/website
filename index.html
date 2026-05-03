@@ -162,6 +162,7 @@
         .cat-title{font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1.5rem;color:var(--text)}
         .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
         .services-grid-2{grid-template-columns:repeat(2,1fr)}
+        .services-grid-4{grid-template-columns:repeat(2,1fr)}
         .svc-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:2rem;transition:all 0.3s;box-shadow:0 1px 8px rgba(0,0,0,0.03)}
         .svc-card:hover{border-color:rgba(70,130,180,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.06);transform:translateY(-2px)}
         .svc-card h4{font-size:1rem;margin-bottom:0.5rem;letter-spacing:-0.3px;color:var(--text)}
@@ -288,7 +289,7 @@
             .about-photo-accent{display:none}
             .about-credentials{justify-content:center}
             .who-grid{grid-template-columns:1fr}
-            .services-grid,.services-grid-2{grid-template-columns:1fr 1fr}
+            .services-grid,.services-grid-2,.services-grid-4{grid-template-columns:1fr 1fr}
             .test-card{min-width:280px}
             .approach-flow{flex-wrap:wrap;gap:1.5rem}.approach-flow::before{display:none}
             .footer-inner{grid-template-columns:1fr}
@@ -309,7 +310,7 @@
             .about-layout{grid-template-columns:1fr;text-align:center;gap:2rem}
             .about-photo-col{max-width:280px;margin:0 auto}
             .about-credentials{flex-wrap:wrap;justify-content:center}
-            .services-grid,.services-grid-2{grid-template-columns:1fr}
+            .services-grid,.services-grid-2,.services-grid-4{grid-template-columns:1fr}
             .ba-row{grid-template-columns:1fr;text-align:center;gap:0.6rem}
             .ba-before{text-align:center}
             .form-row{grid-template-columns:1fr}
@@ -431,11 +432,11 @@
     <div class="services-cat">
         <span class="cat-label reveal">Growth &amp; Strategy</span>
         <h3 class="cat-title reveal">Scale the business</h3>
-        <div class="services-grid">
+        <div class="services-grid-4">
             <div class="svc-card reveal"><h4>Acquisition Integration</h4><p>Turn bolt-on acquisitions into one joined-up, high-performing business. From due diligence through to getting the cultures aligned. After 65+ integrations, the patterns repeat.</p></div>
             <div class="svc-card reveal reveal-delay-1"><h4>Revenue, Retention &amp; Data</h4><p>Protect existing revenue while growing your client base. Systems and behaviours that mean every client gets the attention they deserve. Dashboards and KPIs so you're making decisions based on what's actually happening, not gut feel. Track the value of every instruction, not just the volume.</p></div>
             <div class="svc-card reveal reveal-delay-2"><h4>Optionality &amp; Change</h4><p>Build a business that gives you real choices. Clean data, reduced key-person risk, leadership that holds. Sellable when you want it to be. Self-running when you don't. Whether it's post-acquisition, new tech, restructuring or a culture overhaul, I keep the momentum going and morale intact when everything around you is changing.</p></div>
-            <div class="svc-card reveal"><h4>Founder Advisory</h4><p>Your sounding board. I help you step back from the day-to-day without sacrificing performance or growth.</p></div>
+            <div class="svc-card reveal reveal-delay-3"><h4>Founder Advisory</h4><p>Your sounding board. I help you step back from the day-to-day without sacrificing performance or growth.</p></div>
         </div>
     </div>
 
@@ -467,7 +468,7 @@
             <div class="case-metric"><div class="case-metric-num gold">18</div><div class="case-metric-label">months</div></div>
         </div>
         <div class="case-text">
-            <h3>A property services firm stuck at &pound;3M.</h3>
+            <h3>A professional services firm stuck at &pound;3M.</h3>
             <p>The founder was in every meeting, every decision, every client call. We restructured the leadership team, built proper systems, integrated two acquisitions, and installed a culture that held. Within 18 months they hit &pound;11M and the founder took his first real holiday in six years.</p>
             <cite>Anonymised client example. Details shared with permission.</cite>
         </div>
