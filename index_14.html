@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenfold Partners | Scale with intent</title>
+    <meta name="description" content="Growth advisory for SME founders and CEOs running businesses between £1M and £20M. Strategy, people, systems. We help you build a business that scales without you.">
+    <meta property="og:title" content="Tenfold Partners | Growth Advisory for SME Founders">
+    <meta property="og:description" content="We help founders and CEOs build high-performance businesses that scale without them. Strategy, people, systems. Two decades of experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tenfoldpartners.co.uk">
+    <meta property="og:image" content="https://tenfoldpartners.co.uk/lee-new.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tenfold Partners | Growth Advisory for SME Founders">
+    <meta name="twitter:description" content="We help founders and CEOs build businesses that scale without them. Strategy, people, systems.">
+    <meta name="twitter:image" content="https://tenfoldpartners.co.uk/lee-new.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 76'><rect width='76' height='76' rx='18' fill='%23F6F6F2'/><defs><linearGradient id='ic' x1='20' y1='56' x2='58' y2='20' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%234682B4' stop-opacity='0.35'/><stop offset='0.7' stop-color='%234682B4'/><stop offset='1' stop-color='%232E6598'/></linearGradient></defs><path d='M20 55 L44 54.4 Q52 54 54.5 42 Q56 33 56 31' fill='none' stroke='url(%23ic)' stroke-width='4' stroke-linecap='round'/><circle cx='56.5' cy='26' r='5.6' fill='none' stroke='%23C4922A' stroke-width='3.6'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#FFFFFF;--bg2:#F6F6F2;--bg3:#EEEEEA;
+            --accent:#4682B4;--accent2:#C4922A;
+            --text:#1A1A1A;--text-dim:#5A5A5A;--text-muted:#999999;
+            --glass:rgba(0,0,0,0.02);--glass-border:rgba(0,0,0,0.08);
+            --glass-hover:rgba(0,0,0,0.04);
+            --card-bg:#FFFFFF;--card-border:rgba(0,0,0,0.07);
+            --shadow:0 2px 20px rgba(0,0,0,0.06);
+        }
+        html{scroll-behavior:smooth}
+        ::selection{background:rgba(70,130,180,0.15);color:var(--text)}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+        h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-1px}
+
+        /* ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:0.1s}.reveal-delay-2{transition-delay:0.2s}.reveal-delay-3{transition-delay:0.3s}.reveal-delay-4{transition-delay:0.4s}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:all 0.4s}
+        nav.scrolled{border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,0.92);box-shadow:0 1px 12px rgba(0,0,0,0.04)}
+        .logo{display:flex;align-items:center;text-decoration:none;gap:0}
+        .logo svg{display:block;height:54px;width:auto}
+        footer .logo svg{height:64px}
+        .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.3s;letter-spacing:0.3px;position:relative}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent2);transition:width 0.3s ease}
+        .nav-links a:hover{color:var(--text)}
+        .nav-links a:hover::after{width:100%}
+        .nav-cta::after{display:none}
+        .nav-cta{background:var(--accent)!important;color:#fff!important;padding:0.6rem 1.6rem;border-radius:100px;font-weight:600!important;transition:opacity 0.3s!important}
+        .nav-cta:hover{opacity:0.85}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+        /* MOBILE NAV */
+        .mobile-nav-overlay{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+        .mobile-nav-overlay.open{display:flex}
+        .mobile-nav-overlay a{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+        .mobile-nav-overlay a:hover{color:var(--accent)}
+        .mobile-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--text);font-size:2rem;cursor:pointer}
+
+        /* SOCIAL ICONS */
+        .social-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--glass-border);color:var(--text-dim);transition:all 0.3s;text-decoration:none}
+        .social-icon:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px);box-shadow:0 4px 16px rgba(196,146,42,0.15)}
+        .social-icon svg{width:20px;height:20px;fill:currentColor}
+        .nav-social{display:flex;gap:0.6rem;margin-left:0.5rem}
+        .nav-social .social-icon{width:34px;height:34px;border:none;color:var(--text-muted)}
+        .nav-social .social-icon:hover{color:var(--accent2);transform:none;box-shadow:none}
+        .nav-social .social-icon svg{width:17px;height:17px}
+        .contact-social{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2rem}
+        .contact-social span{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.5px}
+        .contact-social .social-icon{width:44px;height:44px}
+        .footer-social{display:flex;gap:0.8rem;margin-top:1rem}
+        .footer-social .social-icon{width:38px;height:38px;border-color:rgba(0,0,0,0.06)}
+        .footer-social .social-icon svg{width:16px;height:16px}
+        .social-icon[aria-label="LinkedIn"]:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 16px rgba(70,130,180,0.15)}
+        .nav-social .social-icon[aria-label="LinkedIn"]:hover{box-shadow:none}
+        .contact-direct a[href^="mailto:"]:hover,.footer-nav a[href^="mailto:"]:hover{color:#2E8B57}
+        .contact-direct a[href*="instagram.com"]:hover{color:var(--accent2)}
+        .footer-social .social-icon[aria-label="LinkedIn"]:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 16px rgba(70,130,180,0.15)}
+        .footer-social .social-icon[aria-label="Instagram"]:hover{border-color:var(--accent2);color:var(--accent2);box-shadow:0 4px 16px rgba(196,146,42,0.15)}
+
+        /* PRIVACY MODAL */
+        .privacy-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+        .privacy-modal.open{display:flex}
+        .privacy-modal-inner{background:var(--bg);max-width:600px;width:90%;max-height:80vh;overflow-y:auto;border-radius:12px;padding:2.5rem;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+        .privacy-modal-inner h2{font-size:1.3rem;margin-bottom:1.2rem}
+        .privacy-modal-inner h3{font-size:0.95rem;margin:1.2rem 0 0.4rem;color:var(--text)}
+        .privacy-modal-inner p{font-size:0.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:0.6rem}
+        .privacy-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.5rem;color:var(--text-muted);cursor:pointer}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:5.5rem 3rem 2rem;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(70,130,180,0.06) 0%,transparent 70%);pointer-events:none}
+        .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(212,146,42,0.04) 0%,transparent 70%);pointer-events:none}
+        .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+        .hero-label{display:inline-block;font-size:0.8rem;font-weight:500;color:var(--accent);margin-bottom:0.6rem;letter-spacing:1.5px;text-transform:uppercase}
+        .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.05;margin-bottom:1rem;letter-spacing:-2.5px;color:var(--text)}
+        .hero h1 em{font-style:italic;color:var(--accent);font-family:'Space Grotesk',sans-serif}
+        .hero-sub{font-size:0.95rem;color:var(--text-dim);max-width:520px;margin-bottom:1rem;line-height:1.6}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:0.8rem}
+        .btn-accent{background:var(--accent);color:#fff;padding:0.85rem 2.2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.3s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+        .btn-accent:hover{box-shadow:0 4px 24px rgba(70,130,180,0.25);transform:translateY(-2px)}
+        .hero-buttons .btn-accent{animation:cta-glow 3s ease-in-out infinite}
+        @keyframes cta-glow{0%,100%{box-shadow:0 0 0 rgba(70,130,180,0)}50%{box-shadow:0 0 20px rgba(70,130,180,0.15)}}
+        .btn-outline{background:transparent;color:var(--text);padding:0.85rem 2.2rem;border-radius:100px;text-decoration:none;font-weight:500;font-size:0.9rem;border:1.5px solid var(--glass-border);transition:all 0.3s;cursor:pointer;font-family:'Inter',sans-serif}
+        .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+        .social-proof{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.5px;display:flex;align-items:center;gap:0.8rem}
+        @media(max-width:768px){.social-proof{flex-direction:column!important;align-items:center!important;text-align:center!important;justify-content:center!important}}
+        .hero-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center 30%;border:2.5px solid var(--accent);flex-shrink:0;box-shadow:0 2px 12px rgba(70,130,180,0.12);filter:grayscale(1) contrast(1.05)}
+        .hero-social{display:flex;gap:1rem;margin-top:1.5rem}
+        .hero-stats{display:flex;gap:2.5rem;margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)}
+        .hero-stat{}
+        .hero-stat-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-1px;line-height:1}
+        .hero-stat-label{font-size:0.6rem;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:0.3rem;font-weight:500}
+
+        /* SCROLL HINT */
+        .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;color:var(--text-muted);font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;z-index:1}
+        .scroll-hint span{animation:hint-fade 2.5s ease infinite}
+        .scroll-chevron{width:16px;height:16px;border-right:1.5px solid var(--text-muted);border-bottom:1.5px solid var(--text-muted);transform:rotate(45deg);animation:hint-bounce 2.5s ease infinite}
+        @keyframes hint-fade{0%,100%{opacity:0.3}50%{opacity:0.8}}
+        @keyframes hint-bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
+
+        /* SECTIONS COMMON */
+        section{padding:3.5rem 3rem}
+        .section-label{font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block}
+        .section-header{max-width:700px;margin-bottom:2.5rem}
+        .section-header.centered{margin-left:auto;margin-right:auto;text-align:center}
+        .section-header h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-2px;margin-bottom:1rem;line-height:1.1}
+        .section-header p{font-size:1rem;color:var(--text-dim);line-height:1.7}
+
+        /* FIT */
+        .fit{background:var(--bg2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+        .fit-content{max-width:750px;margin:0 auto;text-align:center}
+        .fit-content h2{font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-1px;margin-bottom:1.5rem}
+        .fit-content p{font-size:1.05rem;color:var(--text-dim);line-height:1.9}
+        .fit-content strong{color:var(--text)}
+
+        /* ABOUT */
+        .about{background:var(--bg)}
+        .about-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:0.4fr 0.6fr;gap:4rem;align-items:center}
+        .about-photo-col{position:relative}
+        .about-photo-col{overflow:hidden;border-radius:12px}
+        .about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;border-radius:12px;display:block;box-shadow:0 12px 40px rgba(0,0,0,0.1);transition:transform 0.6s ease;filter:grayscale(1) contrast(1.05) brightness(1.02)}
+        .about-photo-col::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;mix-blend-mode:overlay}
+        .about-photo-col:hover .about-photo{transform:scale(1.03)}
+        .about-photo-accent{position:absolute;bottom:-16px;right:-16px;width:100%;height:100%;border:2px solid var(--accent);border-radius:12px;z-index:-1;opacity:0.3}
+        .about-text h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-2px;line-height:1.1;margin-bottom:1.5rem}
+        .about-text .section-label{margin-bottom:1rem}
+        .about-text p{font-size:1rem;color:var(--text-dim);line-height:2}
+        .about-text strong{color:var(--text)}
+        .about-credentials{display:flex;gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--glass-border)}
+        .about-cred{text-align:center}
+        .about-cred-num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--accent);letter-spacing:-1px}
+        .about-cred-label{font-size:0.65rem;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:0.2rem}
+
+        /* WHO I WORK WITH */
+        .who{background:var(--bg2)}
+        .who-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .who-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:2.2rem;transition:all 0.4s;box-shadow:var(--shadow)}
+        .who-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);border-color:rgba(70,130,180,0.2)}
+        .who-card h3{font-size:1.15rem;margin-bottom:0.6rem;letter-spacing:-0.5px;color:var(--text);line-height:1.3;min-height:2.6em}
+        .who-card p{font-size:0.9rem;color:var(--text-dim);line-height:1.7}
+
+        /* SERVICES */
+        .services{background:var(--bg)}
+        .services-cat{max-width:1100px;margin:0 auto 2.5rem}
+        .services-cat:last-child{margin-bottom:0}
+        .cat-label{font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.4rem}
+        .cat-title{font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1.5rem;color:var(--text)}
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+        .services-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+        .services-grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+        .svc-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:2rem;transition:all 0.3s;box-shadow:0 1px 8px rgba(0,0,0,0.03)}
+        .svc-card:hover{border-color:rgba(70,130,180,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.06);transform:translateY(-2px)}
+        .svc-card h4{font-size:1rem;margin-bottom:0.5rem;letter-spacing:-0.3px;color:var(--text)}
+        .svc-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
+        .cat-icon{width:44px;height:44px;border-radius:11px;background:rgba(70,130,180,0.10);display:flex;align-items:center;justify-content:center;margin-bottom:0.9rem}
+        .cat-icon svg{width:24px;height:24px;fill:var(--accent)}
+        /* RESULTS (navy) */
+        .results{background:#0D1B2A;position:relative;overflow:hidden}
+        .results .section-label{color:#8FC2EC}
+        .results .section-header h2{color:#fff}
+        .results .section-header p{color:rgba(255,255,255,0.62)}
+        .results-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;z-index:1}
+        .result-item{text-align:center}
+        .result-num{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,4vw,3.3rem);font-weight:700;letter-spacing:-2px;line-height:1;background:linear-gradient(90deg,#6AA6D8,#E0B454);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .result-label{font-size:0.8rem;color:rgba(255,255,255,0.6);letter-spacing:0.3px;margin:0.7rem auto 0;line-height:1.5;max-width:190px}
+        .results-curve{position:absolute;inset:0;pointer-events:none;opacity:0.55;z-index:0}
+        .results-curve svg{position:absolute;right:0;bottom:0;width:min(70%,760px);height:auto}
+        /* HERO CURVE */
+        .hero-curve{position:absolute;right:2%;bottom:8%;width:min(50%,660px);opacity:0.5;pointer-events:none;z-index:0}
+        /* GROWTH THREAD (trial) */
+        #growth-thread{position:absolute;top:0;left:0;width:100%;pointer-events:none;z-index:2;opacity:0.5}
+        #growth-thread svg{display:block;width:100%;height:100%}
+        @media(max-width:1024px){#growth-thread{display:none}}
+
+        /* FEATURED TESTIMONIAL */
+        .feat-test{background:var(--bg2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);padding:3.5rem 3rem;text-align:center}
+        .feat-test blockquote{max-width:800px;margin:0 auto 1.5rem;font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:500;letter-spacing:-0.5px;line-height:1.4;color:var(--text);position:relative}
+        .feat-test blockquote::before{content:'\201C';position:absolute;top:-0.4em;left:-0.5em;font-size:4rem;color:var(--accent2);opacity:0.35;font-family:Georgia,serif;line-height:1}
+        .feat-test cite{font-style:normal;font-size:0.8rem;color:var(--text-muted);letter-spacing:1px}
+
+        /* CASE STUDY */
+        .case-study{background:var(--bg);padding:4rem 3rem}
+        .case-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+        .case-metrics{display:flex;flex-direction:column;gap:1.5rem}
+        .case-metric{text-align:center}
+        .case-metric-num{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;letter-spacing:-1px;line-height:1}
+        .case-metric-num.green{color:var(--accent)}
+        .case-metric-num.gold{color:var(--accent2)}
+        .case-metric-label{font-size:0.6rem;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:0.3rem;font-weight:500}
+        .case-text{border-left:3px solid var(--accent2);padding-left:2rem}
+        .case-text h3{font-size:1.4rem;letter-spacing:-0.5px;margin-bottom:0.8rem;color:var(--text)}
+        .case-text p{font-size:0.95rem;color:var(--text-dim);line-height:1.9}
+        .case-text cite{display:block;margin-top:1rem;font-style:normal;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.5px}
+        @media(max-width:768px){.case-inner{grid-template-columns:1fr;text-align:center}.case-metrics{flex-direction:row;justify-content:center;gap:2rem}.case-text{border-left:none;padding-left:0;border-top:3px solid var(--accent2);padding-top:1.5rem}}
+
+        /* TESTIMONIALS */
+        .testimonials{background:var(--bg)}
+        .test-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:0 3rem}
+        .test-card{background:var(--card-bg);border:1px solid var(--card-border);border-left:3px solid transparent;border-radius:12px;padding:2rem;box-shadow:var(--shadow);transition:all 0.3s}
+        .test-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.07);border-left-color:var(--accent);transform:translateY(-2px)}
+        .test-card blockquote{font-size:0.92rem;color:var(--text-dim);line-height:1.8;margin-bottom:1.2rem;font-style:italic}
+        .tc-author{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.9rem;color:var(--text)}
+        .tc-role{font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem}
+
+        /* BEFORE / AFTER */
+        .ba{background:var(--bg2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+        .ba-grid{max-width:1000px;margin:0 auto}
+        .ba-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;padding:1.8rem 0;border-bottom:1px solid var(--glass-border)}
+        .ba-row:last-child{border-bottom:none}
+        .ba-before{font-size:0.9rem;color:var(--text-dim);line-height:1.7;text-align:right}
+        .ba-arrow{color:var(--accent);font-size:1.3rem;font-weight:700}
+        .ba-after{font-size:0.9rem;color:var(--text);line-height:1.7;font-weight:500}
+
+        /* APPROACH */
+        .approach{background:var(--bg);padding:4rem 3rem}
+        .approach-flow{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;position:relative}
+        .approach-flow::before{content:'';position:absolute;top:20px;left:10%;right:10%;height:2px;background:linear-gradient(to right,var(--accent),var(--accent2));opacity:0.25}
+        .approach-item{text-align:center;flex:1;position:relative;padding:0 1rem}
+        .approach-dot{width:40px;height:40px;border-radius:50%;background:var(--accent2);margin:0 auto 1rem;position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+        .approach-dot svg{width:20px;height:20px;fill:white}
+        .approach-item h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;letter-spacing:-0.3px;margin-bottom:0.4rem;color:var(--text)}
+        .approach-item p{font-size:0.8rem;color:var(--text-muted);line-height:1.6}
+
+        /* ASSESSMENT */
+        .assessment{background:var(--bg2)}
+        .assess-stepper{max-width:620px;margin:0 auto;position:relative}
+        .q-block{display:none;background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:2.4rem;box-shadow:0 4px 24px rgba(0,0,0,0.05)}
+        .q-block.active{display:block;animation:qfade .35s ease}
+        @keyframes qfade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+        .q-block h4{font-size:1.2rem;margin-bottom:1.3rem;letter-spacing:-0.3px;line-height:1.5;color:var(--text)}
+        .assess-controls{display:flex;justify-content:space-between;align-items:center;max-width:620px;margin:1.2rem auto 0}
+        .assess-back{background:none;border:none;color:var(--text-muted);font-size:0.85rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:color .2s}
+        .assess-back:hover{color:var(--text)}
+        .assess-back:disabled{visibility:hidden}
+        .assess-hint{font-size:0.78rem;color:var(--text-muted);letter-spacing:0.3px}
+        .q-num{color:var(--accent);margin-right:0.3rem}
+        .q-options{display:flex;flex-direction:column;gap:0.5rem}
+        .q-options label{display:flex;align-items:center;gap:0.7rem;padding:0.6rem 0.8rem;border-radius:8px;cursor:pointer;transition:background 0.2s;font-size:0.88rem;color:var(--text-dim)}
+        .q-options label:hover{background:var(--bg2)}
+        .q-options input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;cursor:pointer}
+        .q-options label:has(input:checked){background:rgba(70,130,180,0.08);color:var(--text)}
+        .assess-progress{max-width:500px;margin:0 auto 2rem;display:flex;align-items:center;gap:1rem}
+        .assess-progress-bar{flex:1;height:6px;background:var(--glass-border);border-radius:100px;overflow:hidden}
+        .assess-progress-fill{height:100%;width:0;background:var(--accent);border-radius:100px;transition:width 0.4s ease}
+        .assess-progress-text{font-size:0.75rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+        .assess-btn{display:block;width:100%;background:var(--accent);color:#fff;padding:1rem;border-radius:100px;border:none;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;margin-top:1.2rem;transition:all 0.3s}
+        .assess-btn:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 6px 24px rgba(70,130,180,0.25)}
+        #assessment-result{display:none;text-align:center;padding:3rem 0}
+        #assessment-result.visible{display:block}
+        .score-circle{width:130px;height:130px;border-radius:50%;border:4px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 4px 20px rgba(70,130,180,0.12)}
+        .score-num{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:var(--accent);letter-spacing:-2px;line-height:1}
+        .score-of{font-size:0.65rem;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+
+        /* CONTACT */
+        .contact{background:var(--bg);border-top:1px solid var(--glass-border)}
+        .contact-wrap{max-width:640px;margin:0 auto}
+        .contact-wrap>p{font-size:0.95rem;color:var(--text-dim);line-height:1.8;text-align:center;margin-bottom:2.5rem}
+        .contact-direct{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+        .contact-direct a{font-size:0.85rem;color:var(--text-dim);text-decoration:none;transition:color 0.3s;display:flex;align-items:center;gap:0.4rem}
+        .contact-direct a:hover{color:var(--accent)}
+        .contact-direct svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+        .form-group{margin-bottom:1.2rem}
+        .form-row .form-group{margin-bottom:0}
+        .form-group label{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:0.5rem}
+        .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg);border:1px solid var(--glass-border);border-radius:8px;padding:0.85rem 1rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;transition:border-color 0.3s;outline:none}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+        .form-group select{cursor:pointer;appearance:none}
+        .form-group textarea{min-height:120px;resize:vertical}
+        .form-note{font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:1rem}
+        .availability{font-size:0.8rem;color:var(--text-dim);text-align:center;margin-top:1.5rem;font-style:italic}
+
+        /* FOOTER */
+        footer{background:var(--bg2);padding:4rem 3rem 2rem;border-top:1px solid var(--glass-border)}
+        .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;align-items:start}
+        .footer-tagline{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:600;color:var(--accent);letter-spacing:0.5px;margin-top:0.5rem}
+        .footer-brand p{font-size:0.85rem;color:var(--text-muted);line-height:1.7;margin-top:0.8rem;max-width:340px}
+        .footer-nav h4{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem}
+        .footer-nav a{display:block;color:var(--text-muted);text-decoration:none;font-size:0.85rem;margin-bottom:0.6rem;transition:color 0.3s}
+        .footer-nav a:hover{color:var(--accent)}
+        .footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid var(--glass-border);font-size:0.7rem;color:var(--text-muted);letter-spacing:0.5px}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .hero-inner{text-align:center}
+            .hero-sub{margin-left:auto;margin-right:auto}
+            .hero-buttons{justify-content:center}
+            .social-proof{justify-content:center}
+            .hero-social{justify-content:center}
+            .hero-stats{justify-content:center}
+            .about-layout{grid-template-columns:1fr;text-align:center;gap:2.5rem}
+            .about-photo-col{max-width:350px;margin:0 auto}
+            .about-photo-accent{display:none}
+            .about-credentials{justify-content:center}
+            .who-grid{grid-template-columns:1fr}
+            .services-grid,.services-grid-2,.services-grid-4{grid-template-columns:1fr 1fr}
+            .test-grid{grid-template-columns:1fr 1fr}
+            .results-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem 2rem}
+            .hero-curve{opacity:0.32}
+            .approach-flow{flex-wrap:wrap;gap:1.5rem}.approach-flow::before{display:none}
+            .footer-inner{grid-template-columns:1fr}
+        }
+        @media(max-width:768px){
+            nav{padding:1rem 1.5rem}
+            .nav-links{display:none}
+            .nav-social{display:none}
+            .mobile-menu-btn{display:block}
+            section,.hero,.feat-test,.stats,.contact{padding-left:1.5rem;padding-right:1.5rem}
+            .hero{padding-top:7rem;padding-bottom:3rem}
+            .hero-inner{text-align:center}
+            .hero h1{letter-spacing:-2px}
+            .hero-sub{margin-left:auto;margin-right:auto}
+            .hero-buttons{justify-content:center}
+            .hero-stats{flex-wrap:wrap;gap:1.5rem;justify-content:center}
+            .scroll-hint{display:none}
+            .about-layout{grid-template-columns:1fr;text-align:center;gap:2rem}
+            .about-photo-col{max-width:280px;margin:0 auto}
+            .about-credentials{flex-wrap:wrap;justify-content:center}
+            .services-grid,.services-grid-2,.services-grid-4{grid-template-columns:1fr}
+            .ba-row{grid-template-columns:1fr;text-align:center;gap:0.6rem}
+            .ba-before{text-align:center}
+            .form-row{grid-template-columns:1fr}
+            .approach-flow{flex-direction:column;align-items:center}.approach-flow::before{display:none}
+            .footer-inner{grid-template-columns:1fr;gap:2rem}
+            .q-block{padding:1.8rem 1.4rem}
+            .test-grid{grid-template-columns:1fr}
+            .results-grid{grid-template-columns:1fr 1fr;gap:2rem 1.5rem}
+            .hero-curve{display:none}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== GROWTH THREAD (trial) — growth line running down the page, drawn on scroll. To remove it entirely: delete this block, the "GROWTH THREAD (trial)" CSS in the <style>, and the "GROWTH THREAD (trial)" script near the bottom. ===== -->
+<div id="growth-thread" aria-hidden="true">
+    <svg id="growth-thread-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs><linearGradient id="threadGrad" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4682B4" stop-opacity="0.55"/>
+            <stop offset="0.72" stop-color="#4682B4" stop-opacity="0.65"/>
+            <stop offset="1" stop-color="#C4922A"/>
+        </linearGradient></defs>
+        <path id="growth-thread-path" fill="none" stroke="url(#threadGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle id="growth-thread-ring" r="7" fill="none" stroke="#C4922A" stroke-width="2.5" opacity="0"/>
+    </svg>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="#" class="logo" aria-label="Tenfold Partners home">
+        <svg viewBox="0 0 188 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="7" width="30" height="30" rx="8" fill="#F6F6F2" stroke="#e3e3de"/>
+            <defs><linearGradient id="tpLogoLine" x1="9" y1="29" x2="27" y2="12" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4682B4" stop-opacity="0.35"/>
+                <stop offset="0.7" stop-color="#4682B4"/>
+                <stop offset="1" stop-color="#2E6598"/>
+            </linearGradient></defs>
+            <path d="M9 29 L20.5 28.6 Q24.5 28.2 25.8 20 Q26.5 15 26.3 14.3" fill="none" stroke="url(#tpLogoLine)" stroke-width="1.9" stroke-linecap="round"/>
+            <circle cx="26.3" cy="12.6" r="2.5" fill="none" stroke="#C4922A" stroke-width="1.7"/>
+            <text x="44" y="25" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="700" letter-spacing="-1.2" fill="#1A1A1A">tenfold</text>
+            <text x="73" y="37" text-anchor="middle" font-family="'Inter',sans-serif" font-size="7" font-weight="500" letter-spacing="4.4" fill="#8A8A8A">PARTNERS</text>
+        </svg>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#assessment">Assessment</a></li>
+        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <div class="nav-social">
+        <a href="https://linkedin.com/in/leeliasi" target="_blank" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            </div>
+    <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-nav-overlay').classList.add('open')" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay">
+    <button class="mobile-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="#" onclick="this.parentElement.classList.remove('open')">Home</a>
+    <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
+    <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
+    <a href="#results" onclick="this.parentElement.classList.remove('open')">Results</a>
+    <a href="#assessment" onclick="this.parentElement.classList.remove('open')">Assessment</a>
+    <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+    <div style="display:flex;gap:1.2rem;margin-top:1rem">
+        <a href="https://linkedin.com/in/leeliasi" target="_blank" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-curve" aria-hidden="true">
+        <svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs><linearGradient id="heroLine" x1="40" y1="432" x2="606" y2="60" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4682B4" stop-opacity="0.12"/>
+                <stop offset="0.55" stop-color="#4682B4" stop-opacity="0.6"/>
+                <stop offset="0.82" stop-color="#7C8C6E"/>
+                <stop offset="1" stop-color="#C4922A"/>
+            </linearGradient></defs>
+            <path d="M40 432 L300 426 Q470 420 552 322 Q604 250 606 70" stroke="url(#heroLine)" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="606" cy="60" r="11" stroke="#C4922A" stroke-width="4.5" fill="none"/>
+        </svg>
+    </div>
+    <div class="hero-inner">
+        <div class="hero-label reveal">Growth Advisory</div>
+        <h1 class="reveal reveal-delay-1">Build a business<br>bold enough to<br><em>outgrow you.</em></h1>
+        <p class="hero-sub reveal reveal-delay-2">We work with founders and CEOs who want to build high-performance businesses without being stuck in the middle of everything. Strategy, people, systems. The stuff that actually moves the needle.</p>
+        <div class="hero-buttons reveal reveal-delay-3">
+            <a href="#assessment" class="btn-accent">Take the free assessment</a>
+            <a href="#services" class="btn-outline">What we do</a>
+        </div>
+        <div class="social-proof reveal reveal-delay-4">
+            <img src="lee4.JPG" alt="Lee Liasi" class="hero-avatar">
+            <span>Two decades turning ambitious businesses into market leaders. Now in your corner.</span>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+            <div class="hero-stat"><div class="hero-stat-num" data-target="20">0</div><div class="hero-stat-label">Years</div></div>
+            <div class="hero-stat"><div class="hero-stat-num" data-target="200">0</div><div class="hero-stat-label">Leaders Coached</div></div>
+            <div class="hero-stat"><div class="hero-stat-num" data-target="150">0</div><div class="hero-stat-label">Businesses Scaled</div></div>
+            <div class="hero-stat"><div class="hero-stat-num" data-target="65">0</div><div class="hero-stat-label">Acquisitions</div></div>
+        </div>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><div class="scroll-chevron"></div></div>
+</section>
+
+<!-- FIT -->
+<section class="fit">
+    <div class="fit-content reveal">
+        <h2>A note on fit.</h2>
+        <p>This isn't for businesses looking for a quick fix, a slide deck that sits in a drawer, or a consultancy that tells you what you want to hear. We work with founders and leaders running businesses between <strong>&pound;1M and &pound;20M</strong> who are serious about building something that lasts. Some want to sell. Others want to keep building for the next 20 years, with more freedom and less of themselves in every meeting. Both end up needing the same thing: a business that doesn't run through them. If that sounds like you, we'll get on well.</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-layout">
+        <div class="about-photo-col reveal">
+            <img src="lee-new.jpg" alt="Lee Liasi" class="about-photo">
+            <div class="about-photo-accent"></div>
+        </div>
+        <div class="about-text reveal reveal-delay-1">
+            <span class="section-label">About</span>
+            <h2>Not another consultancy.</h2>
+            <p>Tenfold Partners is built on two decades at the top of one of London's fastest-growing companies. Our founder, Lee Liasi, helped take it to <strong>&pound;250 million turnover</strong>, valued at over <strong>&pound;500 million</strong>, building teams, managing <strong>3,000+ people</strong>, training dozens of MDs and coaching hundreds of senior leaders along the way. We haven't read about building a business that runs without you. We have done it. Now we bring that experience, and the right people alongside it, into your business.</p>
+            <div class="about-credentials">
+                <div class="about-cred"><div class="about-cred-num" data-target="500" data-prefix="&pound;" data-suffix="M+">&pound;0M+</div><div class="about-cred-label">Business Value Built</div></div>
+                <div class="about-cred"><div class="about-cred-num" data-target="3000" data-suffix="+" data-format="comma">0+</div><div class="about-cred-label">People Managed</div></div>
+                <div class="about-cred"><div class="about-cred-num" data-target="500" data-suffix="+">0+</div><div class="about-cred-label">Hiring Decisions Made</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO I WORK WITH -->
+<section class="who" id="who">
+    <div class="section-header centered reveal">
+        <span class="section-label">Who we work with</span>
+        <h2>Is this you?</h2>
+    </div>
+    <div class="who-grid">
+        <div class="who-card reveal"><h3>SME Founders</h3><p>You built it from nothing. Now you're stuck in the middle of everything. Revenue's between &pound;1M and &pound;20M but growth has stalled because the business can't move without you.</p></div>
+        <div class="who-card reveal reveal-delay-1"><h3>CEOs &amp; MDs</h3><p>You're leading a growing business but the team, systems and culture haven't kept pace. You need a partner who's actually been in the seat, not just read about it.</p></div>
+        <div class="who-card reveal reveal-delay-2"><h3>Owners Thinking About the Next Chapter</h3><p>Maybe a sale in a few years. Maybe a step back to chairman. Maybe just getting your life back while the business keeps growing. The work to get there is the same.</p></div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="section-header centered reveal">
+        <span class="section-label">Services</span>
+        <h2>Built around your business. Not a template.</h2>
+        <p>We work across growth, people, technology and systems. Everything is shaped around where your business is right now and where you want to take it.</p>
+    </div>
+
+    <div class="services-cat">
+        <div class="cat-icon reveal"><svg viewBox="0 0 24 24"><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/></svg></div>
+        <span class="cat-label reveal">Growth &amp; Strategy</span>
+        <h3 class="cat-title reveal">Scale the business</h3>
+        <div class="services-grid-4">
+            <div class="svc-card reveal"><h4>Acquisition Integration</h4><p>Turn bolt-on acquisitions into one joined-up, high-performing business. From due diligence through to getting the cultures aligned. After 65+ integrations, the patterns repeat.</p></div>
+            <div class="svc-card reveal reveal-delay-1"><h4>Revenue, Retention &amp; Data</h4><p>Protect existing revenue while growing your client base. Systems and behaviours that mean every client gets the attention they deserve. Dashboards and KPIs so you're making decisions based on what's actually happening, not gut feel. Track the value of every instruction, not just the volume.</p></div>
+            <div class="svc-card reveal reveal-delay-2"><h4>Optionality &amp; Change</h4><p>Build a business that gives you real choices. Clean data, reduced key-person risk, leadership that holds. Sellable when you want it to be. Self-running when you don't. Whether it's post-acquisition, new tech, restructuring or a culture overhaul, we keep the momentum going and morale intact when everything around you is changing.</p></div>
+            <div class="svc-card reveal reveal-delay-3"><h4>Founder Advisory</h4><p>A sounding board for you and your leadership team. We help you step back from the day-to-day without sacrificing performance or growth.</p></div>
+        </div>
+    </div>
+
+    <div class="services-cat">
+        <div class="cat-icon reveal"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <span class="cat-label reveal">People &amp; Culture</span>
+        <h3 class="cat-title reveal">Build the team</h3>
+        <div class="services-grid">
+            <div class="svc-card reveal"><h4>High-Performance Teams</h4><p>Teams that are genuinely bought into where you're going. The kind of teams that don't just add to growth, they multiply it. Happy, energised people deliver better results. We build environments where performance and wellbeing reinforce each other.</p></div>
+            <div class="svc-card reveal reveal-delay-1"><h4>Culture &amp; Leadership</h4><p>Culture isn't a poster on the wall. It's how people behave when you're not watching. We build cultures of pace, productivity and genuine customer focus. Then one-to-one and team coaching that turns good managers into proper leaders. Not theory. Practical stuff that actually sticks.</p></div>
+            <div class="svc-card reveal reveal-delay-2"><h4>Neuroscience &amp; Systems</h4><p>Practical techniques backed by science to build better habits and sharpen how your team thinks and performs. No motivational fluff. Systems and processes that outlast any one person, so the business doesn't fall apart when someone walks out the door.</p></div>
+        </div>
+    </div>
+
+    <div class="services-cat">
+        <div class="cat-icon reveal"><svg viewBox="0 0 24 24"><path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2zm-4 6H7V7h10v10z"/></svg></div>
+        <span class="cat-label reveal">Technology</span>
+        <h3 class="cat-title reveal">Modernise the operation</h3>
+        <div class="services-grid services-grid-2">
+            <div class="svc-card reveal"><h4>AI &amp; Technology Integration</h4><p>Practical AI and tech deployment that streamlines operations and frees up your best people to do their best work. No buzzwords, just results.</p></div>
+            <div class="svc-card reveal reveal-delay-1"><h4>Continuous Improvement</h4><p>We stay across what actually works in growth, tech and performance so you don't have to. The latest thinking, tested and applied to your business.</p></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- RESULTS -->
+<section class="results" id="results">
+    <div class="results-curve" aria-hidden="true">
+        <svg viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet">
+            <defs><linearGradient id="resLine" x1="40" y1="270" x2="720" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#6AA6D8" stop-opacity="0.12"/>
+                <stop offset="0.55" stop-color="#6AA6D8" stop-opacity="0.7"/>
+                <stop offset="0.82" stop-color="#A9A46A"/>
+                <stop offset="1" stop-color="#E0B454"/>
+            </linearGradient></defs>
+            <path d="M40 272 L300 268 Q470 263 556 192 Q662 110 712 48" stroke="url(#resLine)" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="716" cy="42" r="9" stroke="#E0B454" stroke-width="4" fill="none"/>
+        </svg>
+    </div>
+    <div class="section-header centered reveal">
+        <span class="section-label">Results</span>
+        <h2>The numbers behind the work.</h2>
+        <p>Two decades of turning ambitious businesses into market leaders. A few of the outcomes.</p>
+    </div>
+    <div class="results-grid">
+        <div class="result-item reveal"><div class="result-num">400%</div><div class="result-label">Increase in a client's sales within four weeks</div></div>
+        <div class="result-item reveal reveal-delay-1"><div class="result-num">10x</div><div class="result-label">Growth roadmap built for a &pound;4M group</div></div>
+        <div class="result-item reveal reveal-delay-2"><div class="result-num">&pound;500M+</div><div class="result-label">Business value built</div></div>
+        <div class="result-item reveal reveal-delay-3"><div class="result-num">65+</div><div class="result-label">Acquisitions integrated</div></div>
+    </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+    <div class="section-header centered reveal">
+        <span class="section-label">Approach</span>
+        <h2>How we work.</h2>
+    </div>
+    <div class="approach-flow">
+        <div class="approach-item reveal">
+            <div class="approach-dot"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34A6.505 6.505 0 003.03 9.36c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+            <h3>Diagnose</h3>
+            <p>Understand where you are, what's working, and what's holding you back.</p>
+        </div>
+        <div class="approach-item reveal reveal-delay-1">
+            <div class="approach-dot"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 000-1.42l-2.34-2.34a1.003 1.003 0 00-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/></svg></div>
+            <h3>Design</h3>
+            <p>Build a clear plan around your business, your people, and your goals.</p>
+        </div>
+        <div class="approach-item reveal reveal-delay-2">
+            <div class="approach-dot"><svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg></div>
+            <h3>Deliver</h3>
+            <p>Get in with the team and make it happen. Not from the sidelines.</p>
+        </div>
+        <div class="approach-item reveal reveal-delay-3">
+            <div class="approach-dot"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+            <h3>Durability</h3>
+            <p>Make sure it sticks long after we've stepped out.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+    <div class="section-header centered reveal">
+        <span class="section-label">Testimonials</span>
+        <h2>What people say.</h2>
+    </div>
+    <div class="test-grid">
+        <div class="test-card reveal"><blockquote>&ldquo;I brought Lee in to look at how we were performing commercially. Within a couple of weeks he'd identified gaps in our sales process that we'd completely missed. He restructured how the team approached pipeline, tightened up our conversion strategy, and gave us a framework that actually made sense for a tech business. The performance shift was immediate.&rdquo;</blockquote><div class="tc-author">Luke Ladyman</div><div class="tc-role">CEO, Cheddar / Debitscore</div></div>
+        <div class="test-card reveal"><blockquote>&ldquo;I was struggling to get my message across to the right clients. I knew the work was good but I couldn't convert interest into actual business. Lee looked at everything from how I was advertising through to how I was closing. He helped me get completely clear on my vision and who I was really trying to reach. Within four weeks of working with him, my sales were up 400%. I didn't change what I was offering. I changed how I was presenting it.&rdquo;</blockquote><div class="tc-author">Charlie Tillett</div><div class="tc-role">Founder, Production Company</div></div>
+        <div class="test-card reveal reveal-delay-1"><blockquote>&ldquo;I'd built and run a successful company before, but I was starting again from scratch with something bigger and more ambitious. Lee helped me through that whole process, from putting together a business plan through to actually launching. He gave me the structure and the confidence to go from an idea to something real. Having someone in your corner who's done it before makes all the difference.&rdquo;</blockquote><div class="tc-author">Francesca Dal Corso</div><div class="tc-role">Founder, &pound;2M+ Multi-business Owner</div></div>
+        <div class="test-card reveal"><blockquote>&ldquo;I asked Lee for help growing my agency and he came back with the most detailed, well thought out breakdown I could have asked for. Structure, finances, targets and a growth strategy with clear steps on how to get there. He covered everything and made it all make sense without overcomplicating it. He's straight to the point, which is probably his biggest strength, and gives advice that actually moves you forward. Lee is the kind of person you want in your corner when you're building a business. He's genuine and I could feel his investment in every session. If you're looking to scale, Lee is your person.&rdquo;</blockquote><div class="tc-author">Arys Persia</div><div class="tc-role">Founder, Gaia</div></div>
+        <div class="test-card reveal reveal-delay-1"><blockquote>&ldquo;Lee is an unrivalled force of nature. Working together has been both a pleasure and a much needed boost to help us deliver a market leading client focused business. He is an excellent strategist and takes our business to the next level in terms of professionalism and commerciality whilst staying true to our core culture.&rdquo;</blockquote><div class="tc-author">Bobby Phillips</div><div class="tc-role">CEO, Virtus Finance</div></div>
+        <div class="test-card reveal"><blockquote>&ldquo;I run two businesses, one B2B and one B2C, with a combined turnover of &pound;4M. I was stuck in the middle of both, firefighting on recruitment and retention, and I knew I needed a proper plan to scale them without me being the bottleneck. Lee gave me that and more. He cut straight to what was holding us back, rebuilt how we hire and keep our best people, and laid out a clear plan to 10x the business. For the first time I can see it growing without me having to be in every room.&rdquo;</blockquote><div class="tc-author">Richard Burns</div><div class="tc-role">Founder, B2B &amp; B2C Group (&pound;4M turnover)</div></div>
+    </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba">
+    <div class="section-header centered reveal">
+        <span class="section-label">What Changes</span>
+        <h2>The before and after.</h2>
+        <p>This is what happens when the right strategy, team and systems click into place.</p>
+    </div>
+    <div class="ba-grid">
+        <div class="ba-row reveal"><div class="ba-before">Founder-dependent. Every decision runs through you.</div><div class="ba-arrow">&rarr;</div><div class="ba-after">A business that operates, decides and delivers without you in every room.</div></div>
+        <div class="ba-row reveal"><div class="ba-before">Flat growth. Working harder but not getting further.</div><div class="ba-arrow">&rarr;</div><div class="ba-after">Real, compounding growth powered by great people and systems that actually work.</div></div>
+        <div class="ba-row reveal"><div class="ba-before">High staff turnover. Constantly recruiting, constantly training.</div><div class="ba-arrow">&rarr;</div><div class="ba-after">A culture where top performers choose to stay. Industry-leading retention.</div></div>
+        <div class="ba-row reveal"><div class="ba-before">The business can't run without you. No real options.</div><div class="ba-arrow">&rarr;</div><div class="ba-after">A self-sufficient operation with clean data and strong leadership. Sellable when you want it to be. Liveable while you don't.</div></div>
+    </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="assessment" id="assessment">
+    <div class="section-header centered reveal">
+        <span class="section-label">Free Assessment</span>
+        <h2>How scalable is your business?</h2>
+        <p>Answer 6 honest questions. No fluff, no email required upfront. See where you stand in under 3 minutes.</p>
+    </div>
+    <div class="assess-progress" id="assess-progress">
+        <div class="assess-progress-bar"><div class="assess-progress-fill" id="assess-fill"></div></div>
+        <div class="assess-progress-text" id="assess-count">0 / 6</div>
+    </div>
+    <div class="assess-stepper" id="assessment-questions">
+        <div class="q-block active"><h4><span class="q-num">1.</span> If you took a month off tomorrow, what happens to the business?</h4><div class="q-options"><label><input type="radio" name="q1" value="1"><span>It falls apart</span></label><label><input type="radio" name="q1" value="2"><span>It survives but struggles</span></label><label><input type="radio" name="q1" value="3"><span>It runs fine for a while</span></label><label><input type="radio" name="q1" value="4"><span>It doesn't skip a beat</span></label></div></div>
+        <div class="q-block"><h4><span class="q-num">2.</span> How much of your revenue depends on you personally?</h4><div class="q-options"><label><input type="radio" name="q2" value="1"><span>Almost all of it</span></label><label><input type="radio" name="q2" value="2"><span>More than half</span></label><label><input type="radio" name="q2" value="3"><span>Less than half</span></label><label><input type="radio" name="q2" value="4"><span>Very little</span></label></div></div>
+        <div class="q-block"><h4><span class="q-num">3.</span> Do you have a leadership team that can make big decisions without you?</h4><div class="q-options"><label><input type="radio" name="q3" value="1"><span>No, I decide everything</span></label><label><input type="radio" name="q3" value="2"><span>They handle small stuff</span></label><label><input type="radio" name="q3" value="3"><span>Most decisions, yes</span></label><label><input type="radio" name="q3" value="4"><span>They run the show</span></label></div></div>
+        <div class="q-block"><h4><span class="q-num">4.</span> How would you describe your staff retention over the last 2 years?</h4><div class="q-options"><label><input type="radio" name="q4" value="1"><span>Constant churn</span></label><label><input type="radio" name="q4" value="2"><span>We lose good people</span></label><label><input type="radio" name="q4" value="3"><span>Pretty stable</span></label><label><input type="radio" name="q4" value="4"><span>People stay and grow</span></label></div></div>
+        <div class="q-block"><h4><span class="q-num">5.</span> Do you have documented systems and processes that the team actually follows?</h4><div class="q-options"><label><input type="radio" name="q5" value="1"><span>It's all in my head</span></label><label><input type="radio" name="q5" value="2"><span>Some, but patchy</span></label><label><input type="radio" name="q5" value="3"><span>Mostly documented</span></label><label><input type="radio" name="q5" value="4"><span>Fully systemised</span></label></div></div>
+        <div class="q-block"><h4><span class="q-num">6.</span> If a buyer looked at your business today, would they see something they'd want to acquire?</h4><div class="q-options"><label><input type="radio" name="q6" value="1"><span>Honestly, no</span></label><label><input type="radio" name="q6" value="2"><span>Maybe, with work</span></label><label><input type="radio" name="q6" value="3"><span>Getting there</span></label><label><input type="radio" name="q6" value="4"><span>Absolutely</span></label></div></div>
+        <div class="assess-controls"><button type="button" class="assess-back" id="assess-back" disabled>&larr; Back</button><span class="assess-hint">Choose an answer to continue</span></div>
+    </div>
+    <div id="assessment-result">
+        <div class="score-circle"><span class="score-num" id="score-display">0</span><span class="score-of">out of 24</span></div>
+        <h3 id="result-headline" style="margin-bottom:1rem;font-size:1.5rem"></h3>
+        <p id="result-body" style="color:var(--text-dim);max-width:500px;margin:0 auto 2rem;line-height:1.8"></p>
+        <a href="#contact" class="btn-accent">Let's talk about your score</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-header centered reveal">
+        <span class="section-label">Let's Talk</span>
+        <h2>Don't know where to start? Start here.</h2>
+    </div>
+    <div class="contact-wrap reveal">
+        <p>No commitment, no hard sell. Tell us what's going on in your business and we'll be straight with you about whether we can help.</p>
+        <div class="contact-direct">
+            <a href="mailto:info@tenfoldpartners.co.uk"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> info@tenfoldpartners.co.uk</a>
+            <a href="https://linkedin.com/in/leeliasi" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+                    </div>
+        <form onsubmit="event.preventDefault();var f=this;var name=f.querySelector('input[type=text]').value;var email=f.querySelectorAll('input[type=email]')[0].value;var phone=f.querySelector('input[type=tel]').value;var company=f.querySelectorAll('input[type=text]')[1].value;var revenue=f.querySelector('select').value;var message=f.querySelector('textarea').value;var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0ACompany: '+company+'%0D%0ARevenue: '+revenue+'%0D%0A%0D%0A'+encodeURIComponent(message);window.location.href='mailto:info@tenfoldpartners.co.uk?subject=Website Enquiry from '+encodeURIComponent(name)+'&body='+body;alert('Your email client will open with the message. We will be in touch within 24 hours.')">
+            <div class="form-row">
+                <div class="form-group"><label>Your Name *</label><input type="text" required></div>
+                <div class="form-group"><label>Email *</label><input type="email" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Phone Number *</label><input type="tel" required></div>
+                <div class="form-group"><label>Company Name</label><input type="text"></div>
+            </div>
+            <div class="form-group"><label>Approximate Revenue</label><select><option value="">Select range</option><option>Under &pound;1M</option><option>&pound;1M &ndash; &pound;5M</option><option>&pound;5M &ndash; &pound;10M</option><option>&pound;10M &ndash; &pound;20M</option><option>&pound;20M+</option></select></div>
+            <div class="form-group"><label>What's going on in your business?</label><textarea></textarea></div>
+            <button type="submit" class="assess-btn" style="margin-top:0.5rem">Send Message</button>
+        </form>
+        <p class="form-note">We'll come back to you personally. Usually within 24 hours. Your details are kept confidential and never shared. See our <a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').classList.add('open')" style="color:var(--accent);text-decoration:underline">Privacy Policy</a>.</p>
+        <p class="availability">We take on a small number of clients at any one time so we can give each one proper attention.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="#" class="logo" aria-label="Tenfold Partners home">
+        <svg viewBox="0 0 188 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="7" width="30" height="30" rx="8" fill="#F6F6F2" stroke="#e3e3de"/>
+            <defs><linearGradient id="tpLogoLine" x1="9" y1="29" x2="27" y2="12" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4682B4" stop-opacity="0.35"/>
+                <stop offset="0.7" stop-color="#4682B4"/>
+                <stop offset="1" stop-color="#2E6598"/>
+            </linearGradient></defs>
+            <path d="M9 29 L20.5 28.6 Q24.5 28.2 25.8 20 Q26.5 15 26.3 14.3" fill="none" stroke="url(#tpLogoLine)" stroke-width="1.9" stroke-linecap="round"/>
+            <circle cx="26.3" cy="12.6" r="2.5" fill="none" stroke="#C4922A" stroke-width="1.7"/>
+            <text x="44" y="25" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="700" letter-spacing="-1.2" fill="#1A1A1A">tenfold</text>
+            <text x="73" y="37" text-anchor="middle" font-family="'Inter',sans-serif" font-size="7" font-weight="500" letter-spacing="4.4" fill="#8A8A8A">PARTNERS</text>
+        </svg>
+    </a>
+            <p class="footer-tagline">Scale with intent.</p>
+            <p>Growth advisory for SME founders and CEOs building businesses between &pound;1M and &pound;20M that scale without burning out.</p>
+        </div>
+        <div class="footer-nav">
+            <h4>Navigate</h4>
+            <a href="#">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#assessment">Assessment</a>
+        </div>
+        <div class="footer-nav">
+            <h4>Connect</h4>
+            <a href="#contact">Contact</a><a href="mailto:info@tenfoldpartners.co.uk">info@tenfoldpartners.co.uk</a>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/leeliasi" target="_blank" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Tenfold Partners. All rights reserved. &nbsp;|&nbsp; <a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').classList.add('open')" style="color:var(--text-muted);text-decoration:underline">Privacy Policy</a><br><span style="opacity:0.85">Tenfold Partners Limited is registered in England and Wales, company number 17341885. Registered office: Victoria House, 26 Queen Victoria Street, Reading, Berkshire, RG1 1TG.</span></div>
+</footer>
+
+<script>
+// Logo smooth scroll to top
+document.querySelectorAll('a[href="#"]').forEach(a => {
+    a.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Stat count-up with easing for dramatic effect
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+function animateCount(el, target, duration) {
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '+';
+    const useComma = el.dataset.format === 'comma';
+    const start = performance.now();
+    function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutQuart(progress);
+        let n = Math.floor(eased * target);
+        const formatted = useComma ? n.toLocaleString() : String(n);
+        el.textContent = prefix + formatted + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+}
+const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            animateCount(el, target, 2800);
+            statObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.hero-stat-num, .about-cred-num').forEach(el => statObserver.observe(el));
+
+// Assessment — one question at a time
+(function(){
+    const stepper = document.getElementById('assessment-questions');
+    if(!stepper) return;
+    const blocks = Array.from(stepper.querySelectorAll('.q-block'));
+    const backBtn = document.getElementById('assess-back');
+    const hint = stepper.querySelector('.assess-hint');
+    const fill = document.getElementById('assess-fill');
+    const count = document.getElementById('assess-count');
+    let idx = 0;
+    function render(){
+        blocks.forEach((b,k)=>b.classList.toggle('active', k===idx));
+        if(backBtn) backBtn.disabled = idx===0;
+        fill.style.width = (idx/blocks.length*100) + '%';
+        count.textContent = (idx+1) + ' / ' + blocks.length;
+        if(hint) hint.textContent = blocks[idx].querySelector('input:checked') ? 'Answered — moving on' : 'Choose an answer to continue';
+    }
+    blocks.forEach((b,i)=>{
+        b.querySelectorAll('input[type="radio"]').forEach(r=>{
+            r.addEventListener('change', ()=>{
+                fill.style.width = ((i+1)/blocks.length*100) + '%';
+                if(hint && i===idx) hint.textContent = 'Answered — moving on';
+                setTimeout(()=>{
+                    if(i < blocks.length-1){ idx = i+1; render(); }
+                    else { showResult(); }
+                }, 420);
+            });
+        });
+    });
+    if(backBtn) backBtn.addEventListener('click', ()=>{ if(idx>0){ idx--; render(); } });
+    render();
+})();
+
+// Assessment
+function showResult() {
+    const qs = ['q1','q2','q3','q4','q5','q6'];
+    let total = 0, answered = 0;
+    qs.forEach(q => {
+        const sel = document.querySelector(`input[name="${q}"]:checked`);
+        if (sel) { total += parseInt(sel.value); answered++; }
+    });
+    if (answered < 6) { alert('Please answer all 6 questions to see your score.'); return; }
+    document.getElementById('assessment-questions').style.display = 'none';
+    document.getElementById('assess-progress').style.display = 'none';
+    const result = document.getElementById('assessment-result');
+    result.classList.add('visible');
+    document.getElementById('score-display').textContent = total;
+    let h, b;
+    if (total <= 9) { h = "Your business is founder-trapped."; b = "Right now, the business can't function without you. That's not sustainable and it's killing your growth. The good news: this is exactly the situation we specialise in. Let's talk about getting you out of the middle."; }
+    else if (total <= 15) { h = "You've got foundations, but you're still the bottleneck."; b = "Some things are working, but too much still depends on you. You're in the zone where the right changes in team, systems and leadership will unlock serious growth. This is where most of our clients start."; }
+    else if (total <= 20) { h = "You're in good shape. Now it's about acceleration."; b = "Your business has real structure. The opportunity now is to compound what's working, strengthen your leadership bench, and build something with real options. Sellable when you want. Self-running when you don't. We should talk about what the next level looks like."; }
+    else { h = "You've built something impressive."; b = "Your business runs well without you. At this stage, it's about fine-tuning for maximum value. Whether that's an exit, aggressive growth, or building a legacy. Happy to have a conversation about what's next."; }
+    document.getElementById('result-headline').textContent = h;
+    document.getElementById('result-body').textContent = b;
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ===== GROWTH THREAD (trial) — builds the growth line down the page and draws it on scroll =====
+(function(){
+    const wrap=document.getElementById('growth-thread');
+    const svg=document.getElementById('growth-thread-svg');
+    const path=document.getElementById('growth-thread-path');
+    const ring=document.getElementById('growth-thread-ring');
+    const grad=document.getElementById('threadGrad');
+    if(!wrap||!path) return;
+    let len=0, endX=0, endY=0;
+    function build(){
+        const W=document.documentElement.clientWidth;
+        if(W<=1024){ path.removeAttribute('d'); return; }
+        const H=document.documentElement.scrollHeight;
+        wrap.style.height=H+'px';
+        svg.setAttribute('viewBox','0 0 '+W+' '+H);
+        const stats=document.querySelector('.hero-stats');
+        let sx=W*0.15, sy=H*0.12;
+        if(stats){ const r=stats.getBoundingClientRect(); sx=r.left+34; sy=r.bottom+window.scrollY+22; }
+        endY=H-150; endX=W*0.075;
+        const bx=[0.085,0.05,0.075,0.04,0.07,0.045,0.075,0.05];
+        const by=[0.05,0.17,0.29,0.41,0.53,0.65,0.77,0.89];
+        const pts=[[sx,sy]];
+        for(let i=0;i<bx.length;i++){ pts.push([W*bx[i], sy+(endY-sy)*by[i]]); }
+        pts.push([endX,endY]);
+        let d='M '+pts[0][0].toFixed(1)+' '+pts[0][1].toFixed(1);
+        for(let i=0;i<pts.length-1;i++){
+            const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+            const c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
+            const c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+            d+=' C '+c1x.toFixed(1)+' '+c1y.toFixed(1)+', '+c2x.toFixed(1)+' '+c2y.toFixed(1)+', '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);
+        }
+        path.setAttribute('d',d);
+        grad.setAttribute('x1',sx); grad.setAttribute('y1',sy); grad.setAttribute('x2',endX); grad.setAttribute('y2',endY);
+        ring.setAttribute('cx',endX); ring.setAttribute('cy',endY);
+        len=path.getTotalLength(); path.style.strokeDasharray=len; draw();
+    }
+    function draw(){
+        if(!len) return;
+        const s=document.documentElement.scrollHeight-window.innerHeight;
+        const raw=s>0?Math.min(Math.max(window.scrollY/s,0),1):1;
+        const p=Math.min(1,0.06+raw*1.1);
+        path.style.strokeDashoffset=len*(1-p);
+        ring.style.opacity=Math.max(0,Math.min(1,(p-0.9)/0.1));
+    }
+    window.addEventListener('scroll',draw,{passive:true});
+    window.addEventListener('resize',build);
+    window.addEventListener('load',build);
+    build();
+})();
+</script>
+<!-- PRIVACY POLICY MODAL -->
+<div class="privacy-modal" id="privacy-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="privacy-modal-inner">
+        <button class="privacy-close" onclick="document.getElementById('privacy-modal').classList.remove('open')">&times;</button>
+        <h2>Privacy Policy</h2>
+        <p>Last updated: May 2026</p>
+
+        <h3>Who we are</h3>
+        <p>Tenfold Partners is a growth advisory consultancy founded by Lee Liasi. Our website address is https://tenfoldpartners.co.uk and our contact email is info@tenfoldpartners.co.uk.</p>
+
+        <h3>What data we collect and why</h3>
+        <p>When you submit the contact form on this website, we collect your name, email address, phone number, company name, approximate revenue, and your message. We use this information solely to respond to your enquiry and to discuss how we might be able to help your business. We do not use this data for marketing unless you ask us to stay in touch.</p>
+
+        <h3>How we store your data</h3>
+        <p>Your enquiry is received and stored securely in our Microsoft 365 email account. We do not share your information with any third parties, and we do not use any third-party tools to process your data from this website.</p>
+
+        <h3>How long we keep your data</h3>
+        <p>We keep your enquiry for as long as it is relevant to our conversation or any working relationship. If we do not end up working together, we will delete your details within 12 months of our last contact unless you ask us to keep them.</p>
+
+        <h3>Your rights</h3>
+        <p>Under UK GDPR, you have the right to request access to your data, ask us to correct it, ask us to delete it, or withdraw any consent you have given. To exercise any of these rights, email us at info@tenfoldpartners.co.uk and we will respond within 30 days.</p>
+
+        <h3>Cookies</h3>
+        <p>This website does not use cookies or any tracking technologies. No analytics, no advertising pixels, no third-party scripts that collect your data.</p>
+
+        <h3>Changes to this policy</h3>
+        <p>If we make any changes to this policy, we will update the date at the top of this page.</p>
+    </div>
+</div>
+
+</body>
+</html>
